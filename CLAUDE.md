@@ -19,10 +19,19 @@ AI 자율 콘텐츠 발행 에이전트. 테크/AI 분야 블로그 + SNS 자동
 ## 기술 스택
 - Runtime: Node.js + TypeScript
 - Framework: Next.js 15
-- AI: Claude API (Anthropic SDK)
+- AI: Claude Code 직접 실행 (API 키 불필요)
 - DB: Supabase (PostgreSQL)
-- 배포: Vercel
+- 배포: Vercel (GitHub 연동 자동 배포)
 - 스케줄: GitHub Actions
+- GitHub: noble00305/ai-content-agent
+
+## 콘텐츠 작성 원칙 (AI 오버뷰 대응)
+- 독자적 분석/의견 필수 — 팩트 나열만 하면 AI 요약에 먹힌다
+- 비교표/체크리스트/프레임워크 포함 — 직접 봐야 가치 있는 형식
+- 실행 가능한 액션 제시 — 클릭해서 따라해야 하게
+- 롱테일 키워드 공략 — AI 오버뷰 안 뜨는 구체적 쿼리
+- 경험/사례/커뮤니티 반응 — AI가 생성 못 하는 1차 정보
+- AI스러운 도입부 금지 — "~에 대해 알아보겠습니다" 절대 금지
 
 ## 작업 규칙
 - PROGRESS.md를 항상 최신 상태로 유지할 것
