@@ -9,3 +9,4 @@ data/performance/*.json
 data/queue/*.json
 config/google-sa.json
 *.tsbuildinfo
+.vercel-backup-codes

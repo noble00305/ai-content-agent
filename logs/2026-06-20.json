@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-20",
+  "engine": "claude-code-direct",
+  "trendsCollected": 12,
+  "actionsPlanned": 2,
+  "actionsExecuted": 2,
+  "actionsPendingApproval": 0,
+  "reasoning": "HN 상위 트렌드 중 AI 직접 관련 2건 선택. GPT-5.5 환각 논란(339점)은 기술적 인사이트 + SEO 가치 높음. 노르웨이 AI 교육 금지(747점)는 사회적 이슈 + 한국 교육 연결 가능.",
+  "posts": [
+    {
+      "slug": "gpt55-환각-오픈소스-ai-역전",
+      "title": "GPT-5.5 환각 논란 — 오픈소스 AI가 역전하는 시대가 왔다",
+      "category": "AI 뉴스",
+      "sourceTrend": "GPT-5.5 hallucinates 3x more than MIT-licensed GLM-5.2"
+    },
+    {
+      "slug": "노르웨이-초등학교-ai-금지-교육",
+      "title": "노르웨이, 초등학교 AI 사실상 전면 금지 — 한국 교육은 어디로?",
+      "category": "AI 뉴스",
+      "sourceTrend": "Norway imposes near ban on AI in elementary school"
+    }
+  ],
+  "apiCost": 0,
+  "note": "Claude Code 직접 실행 - API 비용 없음"
+}
