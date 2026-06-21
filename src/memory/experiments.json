@@ -1,0 +1,18 @@
+[
+  {
+    "id": "exp-001",
+    "type": "new_category",
+    "description": "AI 도구 리뷰 카테고리 첫 글 시도",
+    "hypothesis": "도구 리뷰는 검색 유입이 높고 제휴 마케팅 연결 가능",
+    "status": "planned",
+    "plannedAt": "2026-06-21"
+  },
+  {
+    "id": "exp-002",
+    "type": "new_format",
+    "description": "비교 분석 형식 (A vs B) 시도",
+    "hypothesis": "비교 글은 롱테일 키워드에 강하고 AI 오버뷰 회피 가능",
+    "status": "planned",
+    "plannedAt": "2026-06-21"
+  }
+]
