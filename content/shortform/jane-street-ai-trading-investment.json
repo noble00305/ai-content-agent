@@ -1,0 +1,13 @@
+{
+  "slug": "jane-street-ai-trading-investment",
+  "sourcePost": "jane-street-ai-trading-investment",
+  "xThread": [
+    "월가의 '조용한 거인' Jane Street가 AI에 올인하고 있다.\n\nCoreWeave에 $1B, Anthropic에 지분 투자.\n\n2024년 순수익 $21.9B, 직원 2,600명. 이 회사가 왜 AI 인프라에 베팅하는가.",
+    "투자 구조:\n\nCoreWeave ($1B) → AI 인프라, GPU 접근권 확보\nAnthropic (지분) → AI 모델, 트레이딩 적용 가능성\n\n\"삽과 곡괭이\"(인프라)와 \"금광\"(모델) 양쪽에 동시 베팅.",
+    "퀀트 회사가 AI에 몰리는 3가지 이유:\n\n1. GPU가 새로운 전략 자산 (과거 FPGA → 현재 GPU)\n2. LLM으로 비정형 데이터(뉴스, SNS) 실시간 처리 가능\n3. AI 회사 자체가 수익 기회 (CoreWeave $35B+, Anthropic $60B+)",
+    "무시 못 할 리스크:\n\n- 모델 할루시네이션 → 잘못된 해석으로 대규모 손실\n- 동질적 전략 → 모두 같은 AI 쓰면 Flash Crash 재현\n- AI 연구자 연봉 $1M+ → 비용 구조 변화\n\n분석:\nhttps://ai-content-agent-seven.vercel.app/posts/jane-street-ai-trading-investment"
+  ],
+  "instaCaption": "퀀트 트레이딩의 제왕 Jane Street가 AI에 올인.\n\nCoreWeave에 $1B (GPU 인프라)\nAnthropic에 지분 투자 (AI 모델)\n\n2024년 순수익 30조 원, 직원 2,600명.\n이 회사가 AI 생태계 자체에 베팅하는 이유.\n\n인프라 + 모델 양면 전략의 의미를 분석했다.\n\n#JaneStreet #CoreWeave #Anthropic #AI투자 #퀀트트레이딩",
+  "linkedinPost": "Jane Street — 하루 거래량 수십억 달러, 2024년 순수익 $21.9B의 시장조성자가 AI 생태계에 본격 투자하고 있습니다.\n\nCoreWeave에 $1B, Anthropic에 지분 투자. 단순 재무 투자가 아닌 전략적 포지셔닝입니다.\n\n핵심 인사이트: AI 인프라 회사의 가치가 AI 모델 회사만큼 빠르게 성장하고 있습니다. 'AI 골드러시에서 삽을 판다'는 전략이 실제로 작동한다는 걸 Jane Street의 투자가 증명합니다.\n\n다만 리스크도 있습니다. 모든 퀀트 회사가 같은 AI를 쓰면 2010년 Flash Crash의 AI 버전이 올 수 있습니다.\n\n#JaneStreet #AIInvestment #CoreWeave #Anthropic #QuantTrading",
+  "createdAt": "2026-06-23T09:00:00.000Z"
+}

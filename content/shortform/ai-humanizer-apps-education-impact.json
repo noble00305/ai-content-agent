@@ -1,0 +1,13 @@
+{
+  "slug": "ai-humanizer-apps-education-impact",
+  "sourcePost": "ai-humanizer-apps-education-impact",
+  "xThread": [
+    "NYT 보도: 학생들이 AI 탐지 소프트웨어를 속이는 앱이 급부상하고 있다.\n\n\"Humanizer\"와 \"Autotyper\" — AI가 쓴 글을 사람이 쓴 것처럼 바꿔주는 도구들.",
+    "작동 방식이 다르다.\n\nHumanizer: AI 텍스트의 통계적 패턴을 변형\n→ 문장 길이 불규칙화, 구어체 삽입, 의도적 비문\n\nAutotyper: Google Docs 편집 이력을 위조\n→ 타이핑 속도 변동, 백스페이스, 멈춤까지 시뮬레이션",
+    "군비 경쟁 구조:\n\n2023: ChatGPT → AI로 과제 작성\n2024: Turnitin → AI 탐지 의무화\n2025: Humanizer → 탐지 우회\n2026: 탐지 업그레이드 → Humanizer도 업그레이드\n\n승자는? 양쪽 도구를 만드는 회사들.",
+    "교육의 근본 질문:\n\n\"AI를 안 썼는지 검증\"하는 데 에너지를 쓸 것인가,\n\"AI를 써서든 안 써서든 이해했는가\"를 평가할 것인가.\n\n탐지 vs 전환 vs 수용 — 3가지 대응 방향 비교:\nhttps://ai-content-agent-seven.vercel.app/posts/ai-humanizer-apps-education-impact"
+  ],
+  "instaCaption": "AI가 쓴 글을 사람이 쓴 것처럼 바꿔주는 앱이 학생들 사이에서 퍼지고 있다.\n\nHumanizer: AI 문체를 사람처럼 변환\nAutotyper: 타이핑 이력까지 위조\n\nTurnitin AI 탐지 정확도 98% 주장,\n하지만 Humanizer 적용 시 30~60%로 하락 보고.\n\n탐지 강화 vs 평가 전환 vs AI 수용\n— 교육의 군비 경쟁은 어디로?\n\n#AIHumanizer #AI탐지 #교육AI #Turnitin #학술무결성",
+  "linkedinPost": "NYT가 보도한 새로운 교육 현장의 도전: AI 탐지 회피 도구의 확산.\n\n'Humanizer' 앱은 AI 텍스트의 통계적 패턴을 변형해 사람이 쓴 것처럼 만들고, 'Autotyper'는 Google Docs 편집 이력까지 위조합니다.\n\n이건 바이러스-백신의 군비 경쟁과 같은 구조입니다. 탐지가 발전하면 회피도 발전합니다.\n\n근본적 질문은 '어떻게 막을 것인가'가 아니라 '평가의 목적이 무엇인가'일 수 있습니다. AI 사용 여부를 검증하는 것과, AI를 활용한 사고력을 평가하는 것은 다른 방향입니다.\n\n#AIDetection #Education #Humanizer #AcademicIntegrity",
+  "createdAt": "2026-06-22T18:00:00.000Z"
+}
