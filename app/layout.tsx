@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const SITE_URL = process.env.SITE_URL || "https://ai-content-agent-seven.vercel.app";
@@ -38,7 +39,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-FJ1X1Y186Y" strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FJ1X1Y186Y');`}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }
