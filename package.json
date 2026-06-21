@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/build-posts.ts",
     "build": "next build",
     "start": "next start",
     "agent:once": "tsx scripts/daily-cycle.ts",
