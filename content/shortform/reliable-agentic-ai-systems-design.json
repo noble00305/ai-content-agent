@@ -1,0 +1,14 @@
+{
+  "slug": "reliable-agentic-ai-systems-design",
+  "sourcePost": "reliable-agentic-ai-systems-design",
+  "xThread": [
+    "Martin Fowler 팀이 Bayer 제약의 AI 에이전트 시스템 PRINCE를 해부했다.\n\n\"에이전트가 작동한다\"와 \"에이전트를 믿을 수 있다\"는 완전히 다른 문제라는 걸 보여주는 사례.",
+    "핵심 원칙 1: Context Engineering\n\n모든 정보를 한 프롬프트에 넣지 마라.\n\n- Think & Plan → 사용자 질문 + 계획 지침만\n- Researcher → 검색 쿼리 + 문서만\n- Writer → 검증된 데이터 + 작성 규칙만\n\n역할별 문맥 분리가 성능을 구조적으로 올린다.",
+    "핵심 원칙 2: 3단계 반영 루프\n\n1단계: 방향이 맞는가? (Process)\n2단계: 데이터가 충분한가? (Data)\n3단계: 답변이 완성됐는가? (Draft)\n\nLLM 호출 3배 증가. 하지만 \"한 번 틀린 답변의 비용 > LLM 호출 3배 비용\"이면 합리적.",
+    "공개된 RAG 수치:\n\n- 초기 검색: ~20개 청크\n- 재랭킹 후: 7개 선택\n- 시맨틱 0.7 / 키워드 0.3\n- 쿼리 확장: 5개 변형\n\n이런 구체적 숫자가 자기 시스템 설계의 출발점이 된다.",
+    "장애를 시스템의 일부로 포함시켜라.\n\n- SQL 실패 → 3회 자동 수정\n- LLM 실패 → 다른 모델로 페일오버\n- 사용자 재시도 → 완료 단계 건너뜀\n\n자세한 분석:\nhttps://ai-content-agent-seven.vercel.app/posts/reliable-agentic-ai-systems-design"
+  ],
+  "instaCaption": "Martin Fowler 팀이 AI 에이전트 신뢰성 설계 원칙을 정리했다.\n\nBayer 제약의 실제 프로덕션 시스템 PRINCE 사례.\n\n핵심:\n→ 에이전트마다 필요한 정보만 분리 제공\n→ 3단계 반영 루프로 출력 검증\n→ 장애를 전제한 자동 복구 설계\n\n\"작동하는 에이전트\"와 \"믿을 수 있는 에이전트\"는 다르다.\n\n#AIAgent #MartinFowler #RAG #SystemDesign #LLM",
+  "linkedinPost": "Martin Fowler 팀이 Bayer 제약의 AI 에이전트 시스템 PRINCE를 분석한 글이 HN에서 화제입니다.\n\n대부분의 에이전트 튜토리얼은 '만드는 법'을 다루지만, 이 글은 '프로덕션에서 신뢰할 수 있게 만드는 법'을 다룹니다.\n\n3가지 핵심 원칙:\n1. Context Engineering — 역할별 문맥 분리\n2. 3단계 반영 루프 — 방향/데이터/초안 검증\n3. 장애 전제 설계 — 자동 복구 + 정량 평가\n\nRAG 파이프라인의 구체적 수치(청크 수, 가중치, 쿼리 확장 수)까지 공개되어 실무 참고 가치가 높습니다.\n\n#AIAgent #SystemDesign #MartinFowler #RAG #LLM",
+  "createdAt": "2026-06-22T09:00:00.000Z"
+}

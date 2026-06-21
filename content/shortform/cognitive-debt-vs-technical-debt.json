@@ -1,0 +1,14 @@
+{
+  "slug": "cognitive-debt-vs-technical-debt",
+  "sourcePost": "cognitive-debt-vs-technical-debt",
+  "xThread": [
+    "Technical Debt는 알고 만드는 부채.\nCognitive Debt는 모르고 쌓이는 부채.\n\nAI 코딩 도구가 만든 새로운 문제를 CTO들이 경고하고 있다.",
+    "차이점:\n\nTechnical Debt → 의식적 타협 (\"나중에 리팩토링\")\nCognitive Debt → 무의식적 누적 (\"AI가 짰는데 작동하니까 넘어감\")\n\n누적 속도가 다르다. AI 코드 생성은 사람보다 10~50배 빠르다. 부채도 그 속도로 쌓인다.",
+    "Cognitive Debt 5가지 증상:\n\n1. PR 리뷰 시간 > 코드 작성 시간\n2. \"이 코드 누가 짰지?\" 질문 증가\n3. 비슷한 함수가 다른 스타일로 중복\n4. 테스트 커버리지는 올라가는데 신뢰도는 하락\n5. 새 팀원 온보딩 시간이 줄지 않음",
+    "CTO 인터뷰 핵심:\n\n\"엔지니어 90%가 AI 사용을 원한다\"\n하지만\n\"검증 체계 없이 12개월 내에 유지보수 위기가 온다\"\n\nAI를 안 쓰는 게 답이 아니다. AI 속도에 맞는 검증 체계가 답이다.",
+    "대응 3가지 축:\n\n1. AI로 AI를 견제 — 신뢰도 점수 기반 리뷰 자동화\n2. Tech Health Team — 리팩토링을 기능 개발과 동등하게\n3. 평가 시스템 — 모델 교체에도 흔들리지 않는 자체 기준\n\n자세한 분석:\nhttps://ai-content-agent-seven.vercel.app/posts/cognitive-debt-vs-technical-debt"
+  ],
+  "instaCaption": "AI가 코드를 짜는 속도는 빨라졌는데,\n개발자가 코드를 이해하는 속도는 그대로다.\n\n이 간극이 Cognitive Debt — 인지 부채.\n\nTechnical Debt와 다른 점:\n→ 모르고 쌓인다\n→ AI 생성 속도(10~50배)로 누적된다\n→ 수정할 때야 발견된다\n\nCTO들의 경고: \"검증 체계 없이 12개월 내 유지보수 위기\"\n\n#CognitiveDebt #AI코딩 #TechnicalDebt #코드품질 #개발문화",
+  "linkedinPost": "AI 코딩 도구가 만든 새로운 부채 — Cognitive Debt.\n\nTechnical Debt는 '일단 하드코딩하고 나중에 고치자'는 의식적 선택입니다.\nCognitive Debt는 'AI가 짠 코드인데 작동하니까 넘어갔다'는 무의식적 누적입니다.\n\n엔지니어 90%가 AI 사용을 원하지만, 코드 이해도를 관리하는 체계는 대부분 없습니다.\n\n대응 전략:\n1. 코드 리뷰 자동화 — 신뢰도 점수 기반 선별 리뷰\n2. 기술 건강 팀 — 리팩토링을 성과로 인정\n3. 모델 독립적 평가 시스템 구축\n\n코드를 빨리 만드는 것보다, 만든 코드를 빨리 이해하는 능력이 2026년 핵심 역량입니다.\n\n#CognitiveDebt #AIEngineering #CodeQuality #DevCulture",
+  "createdAt": "2026-06-22T14:00:00.000Z"
+}
