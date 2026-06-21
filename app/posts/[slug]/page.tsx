@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import Link from "next/link";
+import { marked } from "marked";
 
 export function generateStaticParams() {
   const posts = getAllPosts();
@@ -91,8 +92,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </header>
 
         <div
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) }}
+          className="prose prose-lg max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-table:border-collapse prose-th:bg-gray-50 prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:border prose-th:border-gray-200 prose-th:font-semibold prose-td:px-4 prose-td:py-2 prose-td:border prose-td:border-gray-200 prose-hr:my-8 prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-strong:text-gray-900 prose-a:text-blue-600 prose-li:my-1"
+          dangerouslySetInnerHTML={{ __html: marked.parse(post.content) as string }}
         />
       </article>
 
@@ -129,20 +130,3 @@ function RelatedPosts({ currentSlug, currentTags }: { currentSlug: string; curre
   );
 }
 
-// 간단한 마크다운 -> HTML 변환
-function markdownToHtml(md: string): string {
-  return md
-    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
-    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
-    .replace(/^# (.+)$/gm, "<h1>$1</h1>")
-    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/```(\w*)\n([\s\S]*?)```/g, "<pre><code>$2</code></pre>")
-    .replace(/^\- (.+)$/gm, "<li>$1</li>")
-    .replace(/(<li>.*<\/li>)/s, "<ul>$1</ul>")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
-    .replace(/\n\n/g, "</p><p>")
-    .replace(/^(?!<[huploa])(.+)$/gm, "<p>$1</p>")
-    .replace(/<p><\/p>/g, "");
-}
