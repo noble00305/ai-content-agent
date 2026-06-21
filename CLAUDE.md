@@ -22,6 +22,8 @@ AI 자율 콘텐츠 발행 에이전트. 테크/AI 분야 블로그 + SNS 자동
 - Hands (src/hands/): 콘텐츠 생성, 발행, 숏폼, A/B 테스트
 - Memory (src/memory/): 성과 추적, 패턴 학습, 전략, 실험
 - Guardian (src/guardian/): 리스크 판단, 승인 큐 관리
+  - 현재 미사용. Claude Code 직접 실행 방식에서는 run-agent.md Step 3에서 수동 판단.
+  - daily-cycle.ts(API 방식) 전환 시 활성화 예정.
 
 ## Memory 파일 구조
 - `src/memory/strategy.json` — 현재 전략 + 목표

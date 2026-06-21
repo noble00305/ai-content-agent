@@ -24,7 +24,13 @@ export async function runBrain(trends: TrendItem[]): Promise<ActionPlan> {
 
   // JSON 파싱 (코드블록 감싸져 있을 수 있음)
   const jsonStr = text.replace(/```json?\n?/g, "").replace(/```/g, "").trim();
-  const parsed = JSON.parse(jsonStr);
+  let parsed;
+  try {
+    parsed = JSON.parse(jsonStr);
+  } catch (e) {
+    console.error("[Brain] JSON 파싱 실패. 원본 응답:", text.slice(0, 500));
+    throw new Error(`[Brain] LLM 응답 JSON 파싱 실패: ${(e as Error).message}`);
+  }
 
   const actions: Action[] = parsed.actions.map((a: any, i: number) => ({
     id: v4(),

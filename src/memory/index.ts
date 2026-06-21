@@ -26,12 +26,18 @@ function writeJson(filePath: string, data: any): void {
 export function getRecentSlugs(limit = 20): string[] {
   try {
     if (!fs.existsSync(CONTENT_DIR)) return [];
-    const files = fs.readdirSync(CONTENT_DIR)
-      .filter((f) => f.endsWith(".mdx"))
-      .sort()
-      .reverse()
-      .slice(0, limit);
-    return files.map((f) => f.replace(".mdx", ""));
+    const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".mdx"));
+    const withDates = files.map((f) => {
+      try {
+        const raw = fs.readFileSync(path.join(CONTENT_DIR, f), "utf-8");
+        const { data } = matter(raw);
+        return { slug: f.replace(".mdx", ""), date: data.publishedAt || "" };
+      } catch {
+        return { slug: f.replace(".mdx", ""), date: "" };
+      }
+    });
+    withDates.sort((a, b) => (b.date > a.date ? 1 : b.date < a.date ? -1 : 0));
+    return withDates.slice(0, limit).map((w) => w.slug);
   } catch {
     return [];
   }

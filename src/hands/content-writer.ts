@@ -23,7 +23,13 @@ export async function writePost(params: CreatePostParams): Promise<BlogPost> {
 
   const text = response.content[0].type === "text" ? response.content[0].text : "";
   const jsonStr = text.replace(/```json?\n?/g, "").replace(/```/g, "").trim();
-  const parsed = JSON.parse(jsonStr);
+  let parsed;
+  try {
+    parsed = JSON.parse(jsonStr);
+  } catch (e) {
+    console.error("[Hands] JSON 파싱 실패. 원본 응답:", text.slice(0, 500));
+    throw new Error(`[Hands] LLM 응답 JSON 파싱 실패: ${(e as Error).message}`);
+  }
 
   const slug = toSlug(parsed.title);
   const now = new Date().toISOString();

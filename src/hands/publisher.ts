@@ -25,21 +25,3 @@ generatedBy: "${post.generatedBy}"
 
   return filePath;
 }
-
-export function getPublishedPosts(): BlogPost[] {
-  if (!fs.existsSync(CONTENT_DIR)) return [];
-
-  const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".mdx"));
-  // gray-matter로 파싱은 블로그 렌더링에서 처리
-  return files.map((f) => ({
-    slug: f.replace(".mdx", ""),
-    title: f.replace(".mdx", ""),
-    description: "",
-    content: "",
-    category: "",
-    tags: [],
-    publishedAt: "",
-    seoKeywords: [],
-    generatedBy: "brain-v1" as const,
-  }));
-}
