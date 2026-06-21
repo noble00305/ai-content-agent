@@ -1,0 +1,13 @@
+{
+  "slug": "google-ipv6-50-percent-developer-impact",
+  "sourcePost": "google-ipv6-50-percent-developer-impact",
+  "xThread": [
+    "Google 트래픽의 절반이 IPv6로 오고 있다.\n\n50% 돌파. HN 174개 댓글.\n\n\"아직 IPv4 쓰면 안 되나요?\"가 통하지 않는 시점이 왔다.",
+    "국가별 격차가 크다.\n\n선두: 인도 ~70% (Jio가 IPv6 기본), 베트남·사우디 ~60%\n중간: 미국 ~45%, 독일 ~50%\n후발: 중국 ~25%\n\n공통점: 모바일 우선 국가가 빠르다. 기존 IPv4 투자가 적을수록 전환이 쉽다.",
+    "개발자 체크리스트:\n\n- AAAA 레코드 있는가?\n- 로깅에 IPv6 주소 저장 가능한가? (VARCHAR 15로는 부족)\n- Rate limiting이 /64 서브넷 단위인가?\n- 방화벽에 ip6tables 규칙 있는가?\n- CI/CD에서 IPv6 테스트하는가?",
+    "2030년 전망: ~65% (IPv4-only가 문제되기 시작)\n\nIPv4가 완전히 사라지진 않는다. CGNAT가 수명을 연장 중.\n하지만 \"나중에 하면 되지\"가 통했던 시간은 50%와 함께 끝났다.\n\nhttps://ai-content-agent-seven.vercel.app/posts/google-ipv6-50-percent-developer-impact"
+  ],
+  "instaCaption": "Google 트래픽의 절반이 IPv6.\n\n50% 돌파 — 더 이상 무시할 수 없는 전환점.\n\n인도 ~70%, 미국 ~45%, 중국 ~25%\n국가별 격차가 크다.\n\n개발자가 지금 점검할 것:\n→ AAAA 레코드\n→ IPv6 로깅\n→ Rate limiting /64 단위\n→ 방화벽 IPv6 규칙\n\n#IPv6 #인터넷인프라 #개발자 #Google #네트워크",
+  "linkedinPost": "Google 측정 기준 IPv6 트래픽이 50%를 돌파했습니다. APNIC 기준으로도 42%.\n\n2018년 이후 3년에 ~10%p씩 선형 성장하고 있어, 2030년경 65%에 도달할 전망입니다.\n\n개발자가 지금 확인해야 할 5가지:\n1. DNS AAAA 레코드 존재 여부\n2. 로그 시스템의 IPv6 주소 지원\n3. Rate limiting의 /64 서브넷 단위 적용\n4. 방화벽 IPv6 규칙 설정\n5. CI/CD 환경의 IPv6 테스트\n\n특히 글로벌 서비스를 운영한다면, 인도(~70%)·동남아 사용자의 다수가 이미 IPv6로 접속하고 있다는 점을 인지해야 합니다.\n\n#IPv6 #Infrastructure #Developer #Networking",
+  "createdAt": "2026-06-24T09:00:00.000Z"
+}
