@@ -58,13 +58,48 @@
 5. **경험/사례 기반** — 실제 사용 후기, 실험 결과, 커뮤니티 반응 등 AI가 생성 못 하는 1차 정보를 녹인다.
 6. **도입부 훅** — 첫 2문장에서 "이 글만의 가치"를 명확히. "~에 대해 알아보겠습니다" 류의 AI스러운 도입부 절대 금지.
 
-### Step 5: Memory 업데이트
-- `npx tsx -e "const m = require('./src/memory/index'); m.syncAllPosts();"` 실행하여 새 글 등록
-- 새로운 패턴을 발견했으면 `src/memory/learned-patterns.json`에 추가
-- 전략 변경이 필요하면 `src/memory/strategy.json` 업데이트
+### Step 5: 숏폼 콘텐츠 생성
+작성한 블로그 글마다 숏폼 콘텐츠를 생성합니다:
+1. **X 스레드** (5트윗 내외) — 핵심 포인트 + 블로그 링크
+2. **Instagram 캡션** — 시선 끄는 도입 + 해시태그
+3. **LinkedIn 포스트** — 전문적 톤 + 인사이트
+4. `content/shortform/슬러그.json`으로 저장
+5. 대시보드 `/admin/shortform`에서 복사하여 SNS 발행 가능
 
-### Step 6: 로그 기록
+### Step 6: Memory 업데이트 + 피드백 루프
+- `npx tsx -e "const m = require('./src/memory/index'); m.syncAllPosts();"` 실행하여 새 글 등록
+
+**피드백 루프 (자율 학습):**
+1. 기존 글의 성과를 분석 (조회수, 체류시간 등 — 데이터 있을 때)
+2. 패턴 발견시 `src/memory/learned-patterns.json`에 추가
+   - 예: `{"pattern": "비교 글이 단일 분석보다 조회수 2배", "confidence": 0.7}`
+3. 전략 변경이 필요하면 `src/memory/strategy.json` 업데이트
+4. A/B 테스트 진행중인 것 확인 (`src/memory/ab-tests.json`)
+
+**패턴 학습 기준:**
+- 같은 유형의 글 3편 이상 → 평균 성과 비교 가능
+- 특정 카테고리/태그/제목 패턴에서 일관된 결과 → 패턴으로 등록
+- 사람이 거부한 주제 → 실패 기록에 남기고 유사 주제 회피
+
+### Step 7: 로그 기록
 실행 결과를 logs/오늘날짜.json에 저장합니다.
+로그 형식:
+```json
+{
+  "date": "2026-06-21",
+  "engine": "claude-code-direct",
+  "trendsCollected": 12,
+  "actionsPlanned": 2,
+  "actionsExecuted": 2,
+  "actionsPendingApproval": 0,
+  "reasoning": "왜 이 주제를 선택했는지",
+  "posts": [{ "slug": "...", "title": "...", "category": "..." }],
+  "shortformsGenerated": 2,
+  "patternsLearned": 0,
+  "strategyChanged": false,
+  "apiCost": 0
+}
+```
 
 ## MDX 파일 형식
 ```
