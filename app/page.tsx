@@ -9,7 +9,7 @@ export default function Home() {
       <header className="mb-12">
         <h1 className="text-4xl font-bold mb-2">AI Pulse</h1>
         <p className="text-gray-500 text-lg">
-          AI가 큐레이션하는 최신 AI, 테크 트렌드와 깊이 있는 분석
+          매일 AI/테크 트렌드를 수집하고 정리합니다. 빠르게 읽고 핵심만 가져가세요.
         </p>
       </header>
 
