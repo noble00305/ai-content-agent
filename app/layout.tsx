@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION || "",
+    google: "qbDuNz1SKGBVB2Js79mzQJ6HRz_OmIbEIev36CoZuSw",
   },
 };
 
