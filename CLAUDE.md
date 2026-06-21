@@ -36,6 +36,11 @@ AI 자율 콘텐츠 발행 에이전트. 테크/AI 분야 블로그 + SNS 자동
 - Claude Code 직접 실행 (API 키 불필요, 추가 비용 0원)
 - GitHub: noble00305/ai-content-agent
 
+## 필수 규칙
+- 슬러그(파일명)는 반드시 영문 (한글 슬러그 금지, Vercel 404 발생)
+- 글 발행 후 `npx tsx scripts/build-posts.ts` 실행하여 JSON 재생성
+- Vercel URL: https://ai-content-agent-seven.vercel.app
+
 ## 콘텐츠 작성 원칙 (AI 오버뷰 대응)
 - 독자적 분석/의견 필수 — 팩트 나열만 하면 AI 요약에 먹힌다
 - 비교표/체크리스트/프레임워크 포함 — 직접 봐야 가치 있는 형식
