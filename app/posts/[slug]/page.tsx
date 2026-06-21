@@ -2,10 +2,7 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import Link from "next/link";
 
-export function generateStaticParams() {
-  const posts = getAllPosts();
-  return posts.map((post) => ({ slug: post.slug }));
-}
+export const dynamic = "force-dynamic";
 
 const SITE_URL = process.env.SITE_URL || "https://ai-content-agent.vercel.app";
 
