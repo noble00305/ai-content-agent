@@ -1,0 +1,13 @@
+{
+  "slug": "perplexity-vs-chatgpt-search-vs-ai-overview",
+  "sourcePost": "perplexity-vs-chatgpt-search-vs-ai-overview",
+  "xThread": [
+    "같은 질문을 Perplexity, ChatGPT Search, Google AI Overview에 던지면 결과가 다르다.\n\n세 서비스는 \"검색\"이라는 같은 문제를 다른 철학으로 풀고 있다.",
+    "출처 투명성 비교:\n\nPerplexity: 모든 문장에 인라인 출처, 10~20개\nChatGPT: 하단 참고 링크 3~5개\nGoogle AI Overview: 최소한의 출처 1~3개\n\nAI 검색의 가장 큰 약점(할루시네이션)을 보완하는 건 출처 투명성이다.",
+    "시나리오별 추천:\n\n리서치/논문 → Perplexity (출처 추적)\n코딩 중 확인 → ChatGPT (맥락 유지)\n일상 확인 → Google (별도 앱 불필요)\n제품 비교 → Perplexity (멀티소스 비교표)\n복잡한 판단 → ChatGPT (대화형 상담)",
+    "한국어 사용자 주의점:\n\nPerplexity: 영어 소스 우선, 한국 로컬 정보 약함\nChatGPT: 한국어 가장 자연스러움\nGoogle: 한국어 로컬 정보 압도적\n\n비교표 + 추천 조합:\nhttps://ai-content-agent-seven.vercel.app/posts/perplexity-vs-chatgpt-search-vs-ai-overview"
+  ],
+  "instaCaption": "AI 검색 3종 비교.\n\nPerplexity: 출처 투명성 최고\nChatGPT Search: 대화형 깊이\nGoogle AI Overview: 속도와 통합\n\n하나만 골라야 한다면?\n→ Perplexity (출처로 할루시네이션 보완)\n\n현실적 조합?\n→ Google 기본 + 깊은 리서치 시 Perplexity\n\n#Perplexity #ChatGPT #GoogleAI #AI검색 #도구비교",
+  "linkedinPost": "AI 검색 시장이 3파전입니다. Perplexity, ChatGPT Search, Google AI Overview.\n\n같은 질문에 다른 결과를 내놓는 세 서비스를 출처 투명성, 답변 깊이, 한국어 성능, 가격 대비 가치 4가지 기준으로 비교했습니다.\n\n핵심 발견:\n- 출처 투명성: Perplexity 압도적 (모든 문장에 인라인 출처)\n- 대화형 후속 질문: ChatGPT 최강\n- 한국어 로컬 정보: Google 독보적\n\n$20/월을 하나만 쓴다면?\n리서치 중심 → Perplexity Pro\n올인원 → ChatGPT Plus\nGoogle 생태계 → Google One AI Premium\n\n#AISearch #Perplexity #ChatGPT #Google #ProductivityTools",
+  "createdAt": "2026-06-24T18:00:00.000Z"
+}

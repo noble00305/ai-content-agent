@@ -1,0 +1,13 @@
+{
+  "slug": "ai-writing-literary-prize-controversy",
+  "sourcePost": "ai-writing-literary-prize-controversy",
+  "xThread": [
+    "130년 역사의 영국 문학지 Granta가 문학상 수상작 출판을 중단했다.\n\n이유: Commonwealth 단편소설상 수상작에 AI 사용 의혹.\n\n의혹만으로 출판을 번복할 만큼, 리스크가 커졌다.",
+    "문학이 코딩과 다른 이유:\n\n코드: \"작동하느냐\"가 가치 → AI 도구 사용 보편화\n문학: \"누가 왜 썼느냐\"가 가치의 일부\n\nAI가 기술적으로 완벽한 소설을 쓸 수 있어도,\n\"인간의 창작\"이라는 전제가 문학상의 의미를 지탱한다.",
+    "AI 탐지의 근본 문제:\n\n- 정확도 85~98%, Humanizer 사용 시 급락\n- 비영어권 작가 글이 AI로 오분류되는 사례 다수\n- 법적 효력 없음\n- 의혹만으로 작가 경력에 돌이킬 수 없는 피해",
+    "문학상이 살아남으려면:\n\n\"AI를 안 썼다\"를 증명하게 하는 것보다\n\"이 작품이 왜 가치 있는가\"를 평가하는 기준을 재설계하는 게\n더 지속 가능하다.\n\n분석:\nhttps://ai-content-agent-seven.vercel.app/posts/ai-writing-literary-prize-controversy"
+  ],
+  "instaCaption": "130년 역사의 Granta가 문학상 수상작 출판을 중단했다.\n\nCommonwealth 단편소설상 수상작에 AI 사용 의혹.\n\n코드에서 AI는 도구지만,\n문학에서 AI는 본질적 위반으로 받아들여진다.\n\n차이: 코드는 \"작동 여부\", 문학은 \"누가 왜 썼는가\".\n\nAI 탐지의 오탐 문제, 대응 방향 3가지 비교까지.\n\n#AI글쓰기 #문학상 #Granta #AI창작 #저작권",
+  "linkedinPost": "영국 문학지 Granta가 문학상 수상작 출판을 중단했습니다.\n\nCommonwealth 단편소설상 수상작에 AI 사용 의혹이 제기된 것이 직접적 계기입니다.\n\n이 사건이 중요한 이유: AI 탐지 도구의 오탐율이 존재하는 한, '의혹만으로 작가가 불이익을 받는' 구조가 만들어집니다.\n\n특히 비영어권 작가의 문체가 AI로 오분류되는 사례가 보고되고 있어, Commonwealth처럼 다국적 참가자가 있는 문학상에서 형평성 문제가 커집니다.\n\n코딩에서는 'AI는 도구, 책임은 사람'이라는 합의가 형성됐지만, 문학은 아직 그 합의에 도달하지 못했습니다. '누가 왜 썼는가'가 가치의 일부이기 때문입니다.\n\n#AIWriting #LiteraryPrize #Granta #Copyright #AIDetection",
+  "createdAt": "2026-06-25T09:00:00.000Z"
+}
