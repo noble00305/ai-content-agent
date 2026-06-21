@@ -21,12 +21,13 @@
 - [x] Claude Code 직접 실행으로 첫 글 2편 발행 (API 키 불필요)
 - [x] GitHub 레포 생성 (noble00305/ai-content-agent) + Vercel 배포 완료
 
-## Phase 2: 자율성 강화
-- [ ] Memory 시스템 구축
-- [ ] Eyes: 성과 수집기 (GA, AdSense 연동)
-- [ ] Brain 고도화 (성과 데이터 기반 판단)
-- [ ] SEO 자동 최적화
-- [ ] SNS 자동 발행 (X, Instagram)
+## Phase 2: 자율성 강화 (진행중)
+- [x] SEO 자동 최적화 (sitemap, robots, JSON-LD, OpenGraph, 관련 글)
+- [x] Memory 시스템 고도화 (성과 추적, 분석 요약, 글 동기화)
+- [x] 관리자 대시보드 고도화 (실시간 통계, 전략, 실행 로그)
+- [x] Brain 자율 판단 로직 (Memory 기반 주제 결정, 카테고리 다양화)
+- [ ] Eyes: 성과 수집기 (GA, AdSense 연동) — GA 설정 후
+- [ ] SNS 자동 발행 (X, Instagram) — Phase 3로 이동
 
 ## Phase 3: 확장
 - [ ] 숏폼 콘텐츠 자동 생성
@@ -56,3 +57,7 @@
 - 첫 실제 글 2편 발행 (GPT-5.5 환각, 노르웨이 AI 교육)
 - AI 오버뷰 대응 원칙 CLAUDE.md에 추가
 - Phase 2 시작
+- SEO 최적화 완료 (sitemap, robots, JSON-LD, OpenGraph)
+- Memory 고도화 완료 (성과 추적 + 분석 요약)
+- 대시보드 고도화 완료 (실시간 통계)
+- Brain 자율 판단 로직 완료
