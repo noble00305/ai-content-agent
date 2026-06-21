@@ -1,0 +1,27 @@
+{
+  "date": "2026-06-21",
+  "engine": "claude-code-direct",
+  "trendsCollected": 8,
+  "actionsPlanned": 2,
+  "actionsExecuted": 2,
+  "actionsPendingApproval": 0,
+  "reasoning": "기존 글 2편이 모두 AI 뉴스 카테고리 → 카테고리 다양화 필요. 실험 exp-001(AI 도구 리뷰) 예정이었으므로 1편 할당. 트렌드 1위 Cloudflare AI 에이전트 계정(169점)을 도구 리뷰로 연결. 2편째는 딥다이브 분석으로 추론 비용 계산(59점 트렌드) 선택. 비교표/냅킨 수학으로 AI 오버뷰 대응.",
+  "posts": [
+    {
+      "slug": "cloudflare-ai-에이전트-계정-리뷰",
+      "title": "Cloudflare가 AI 에이전트 전용 임시 계정을 만든 이유",
+      "category": "AI 도구 리뷰",
+      "experiment": "exp-001"
+    },
+    {
+      "slug": "ai-추론-비용-계산-냅킨-수학",
+      "title": "AI 추론 비용, 진짜 얼마나 드나 — 냅킨 수학으로 계산해봤다",
+      "category": "딥다이브 분석"
+    }
+  ],
+  "shortformsGenerated": 2,
+  "patternsLearned": 0,
+  "strategyChanged": false,
+  "experimentsCompleted": ["exp-001"],
+  "apiCost": 0
+}

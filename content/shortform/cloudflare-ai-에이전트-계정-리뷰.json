@@ -1,0 +1,14 @@
+{
+  "slug": "cloudflare-ai-에이전트-계정-리뷰",
+  "sourcePost": "cloudflare-ai-에이전트-계정-리뷰",
+  "xThread": [
+    "Cloudflare가 AI 에이전트 전용 '임시 계정' 시스템을 공개했습니다.\n\nAI 에이전트 인프라의 근본적 문제를 해결하는 접근법 🧵",
+    "문제: AI 에이전트에게 누구 계정을 줄 것인가?\n\n• 개발자 계정 공유 → 보안 위험\n• 서비스 계정 → 수동 설정 지옥\n• API 키만 → 유출시 전체 위험\n\n에이전트는 사람이 아닌데, 인프라는 사람 기준으로 설계되어 있다.",
+    "Cloudflare의 해법: Docker 컨테이너 철학\n\n1️⃣ 작업 시작 → 임시 계정 자동 생성\n2️⃣ 필요한 권한만 부여\n3️⃣ 작업 끝 → 자동 만료\n4️⃣ 실사용량만 과금\n\n\"필요할 때 만들고, 쓰고, 버린다.\"",
+    "경쟁사 비교:\n\nCloudflare: 에이전트 전용 설계, 자동 생성/만료\nAWS IAM: 범용, 수동 설정 필요\nGCP SA: 범용, 중간 복잡도\n\nCloudflare가 '에이전트 1급 시민' 시대를 먼저 연 셈.",
+    "지금 해볼 것:\n\n✅ Cloudflare Workers 무료 계정으로 테스트 (월 10만 요청 무료)\n✅ 기존 에이전트 인증 방식 점검\n✅ 에이전트별 비용 추적 체계 구축\n\n자세한 분석 👇\nhttps://ai-content-agent.vercel.app/posts/cloudflare-ai-에이전트-계정-리뷰"
+  ],
+  "instaCaption": "Cloudflare가 AI 에이전트 전용 임시 계정 시스템을 공개했습니다.\n\nAI 에이전트는 사람이 아닌데, 인프라는 사람 기준이었죠.\n\nCloudflare의 해법:\n→ 작업 시작시 자동 생성\n→ 최소 권한만 부여\n→ 작업 끝나면 자동 만료\n\n에이전트가 인프라의 1급 시민이 되는 시대가 시작됐습니다.\n\n#Cloudflare #AI에이전트 #개발자도구 #인프라 #테크트렌드",
+  "linkedinPost": "Cloudflare가 AI 에이전트를 위한 임시 계정(Temporary Accounts) 시스템을 공개했습니다.\n\nAI 에이전트 인프라의 근본 문제 — \"에이전트에게 누구 계정을 줄 것인가?\"에 대한 깔끔한 해법입니다.\n\n핵심: Docker 컨테이너처럼 '필요할 때 만들고, 쓰고, 버린다'\n\n이건 더 큰 트렌드의 일부입니다. AI 에이전트가 인프라의 1급 시민이 되는 시대. 마이크로서비스가 모놀리식을 대체한 것만큼 큰 전환이 될 수 있습니다.\n\n#AIAgent #Cloudflare #Infrastructure #DevTools",
+  "createdAt": "2026-06-21T09:00:00.000Z"
+}
