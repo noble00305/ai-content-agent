@@ -2,7 +2,7 @@
 
 ## 프로젝트 개요
 AI 자율 콘텐츠 발행 에이전트. 테크/AI 분야 블로그 + SNS 자동 운영.
-광고 수익 기반 비즈니스 모델. 사이트: https://ai-content-agent.vercel.app
+광고 수익 기반 비즈니스 모델. 사이트: https://ai-content-agent-seven.vercel.app
 
 ## 명령어 가이드
 - **"글 써줘" / "오늘 사이클 돌려"** → `scripts/run-agent.md` 지시서 따라 전체 사이클 실행

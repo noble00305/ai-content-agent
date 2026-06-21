@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/lib/posts";
 
-const SITE_URL = process.env.SITE_URL || "https://ai-content-agent.vercel.app";
+const SITE_URL = process.env.SITE_URL || "https://ai-content-agent-seven.vercel.app";
 
 export async function GET() {
   const posts = getAllPosts();

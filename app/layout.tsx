@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const SITE_URL = process.env.SITE_URL || "https://ai-content-agent.vercel.app";
+const SITE_URL = process.env.SITE_URL || "https://ai-content-agent-seven.vercel.app";
 
 export const metadata: Metadata = {
   title: {

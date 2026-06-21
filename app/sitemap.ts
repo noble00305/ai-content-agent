@@ -1,7 +1,7 @@
 import { getAllPosts } from "@/lib/posts";
 import type { MetadataRoute } from "next";
 
-const SITE_URL = process.env.SITE_URL || "https://ai-content-agent.vercel.app";
+const SITE_URL = process.env.SITE_URL || "https://ai-content-agent-seven.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
