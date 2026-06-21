@@ -10,14 +10,30 @@
 `npx tsx src/eyes/index.ts` 를 실행하여 HN/Reddit에서 AI/테크 트렌드를 수집합니다.
 결과는 `data/trends/오늘날짜.json`에 저장됩니다.
 
-### Step 2: Brain - 주제 결정
-수집된 트렌드 데이터를 읽고, 오늘 발행할 블로그 글 2편의 주제를 결정하세요.
+### Step 2: Brain - 주제 결정 (자율 판단)
 
-판단 기준:
-- 트렌드 점수가 높은 것 우선
-- 최근 발행한 글(content/posts/)과 중복되지 않는 주제
-- 한국 독자에게 가치 있는 AI/테크 주제
-- src/memory/learned-patterns.json의 학습 패턴 참고
+**먼저 Memory를 확인하세요:**
+- `npx tsx -e "const m = require('./src/memory/index'); console.log(m.getMemorySummary());"` 실행
+- `src/memory/performance.json` — 기존 글 성과 확인
+- `src/memory/learned-patterns.json` — 학습된 패턴 확인
+- `src/memory/strategy.json` — 현재 전략 확인
+- `content/posts/` — 기존 글 목록 (중복 방지)
+
+**자율 판단 기준 (우선순위 순):**
+1. 트렌드 점수 높은 것 우선
+2. 최근 발행한 글과 중복되지 않는 주제
+3. 한국 독자에게 가치 있는 AI/테크 주제
+4. 카테고리 다양화 (AI 뉴스만 편중되지 않게)
+5. 학습된 패턴 반영 (잘 된 유형 더 생산)
+
+**Brain의 자율 판단 예시:**
+- 특정 카테고리가 편중됨 → 다른 카테고리 선택
+- 최근 글이 모두 뉴스 분석 → 튜토리얼/비교 글 시도
+- 학습 패턴에서 "비교 글이 인기" → 비교 형식 채택
+- 긴급 트렌드 발견 → 기존 계획 변경하고 속보 우선
+
+**판단 후 반드시 기록:**
+실행 로그에 "왜 이 주제를 선택했는지" reasoning을 남길 것.
 
 ### Step 3: Guardian - 리스크 판단
 결정한 주제가 민감한 내용(정치, 종교, 의료 조언 등)을 포함하면 사람에게 승인 요청하세요.
@@ -42,7 +58,12 @@
 5. **경험/사례 기반** — 실제 사용 후기, 실험 결과, 커뮤니티 반응 등 AI가 생성 못 하는 1차 정보를 녹인다.
 6. **도입부 훅** — 첫 2문장에서 "이 글만의 가치"를 명확히. "~에 대해 알아보겠습니다" 류의 AI스러운 도입부 절대 금지.
 
-### Step 5: 로그 기록
+### Step 5: Memory 업데이트
+- `npx tsx -e "const m = require('./src/memory/index'); m.syncAllPosts();"` 실행하여 새 글 등록
+- 새로운 패턴을 발견했으면 `src/memory/learned-patterns.json`에 추가
+- 전략 변경이 필요하면 `src/memory/strategy.json` 업데이트
+
+### Step 6: 로그 기록
 실행 결과를 logs/오늘날짜.json에 저장합니다.
 
 ## MDX 파일 형식
