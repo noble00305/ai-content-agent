@@ -18,8 +18,8 @@
 - [x] 스케줄 실행 설정 (GitHub Actions cron)
 - [x] 일일 사이클 스크립트 (Eyes -> Brain -> Guardian -> Hands)
 - [x] 빌드 성공 확인
-- [ ] ANTHROPIC_API_KEY 설정 후 첫 실행 테스트
-- [ ] GitHub 레포 생성 + Vercel 배포
+- [x] Claude Code 직접 실행으로 첫 글 2편 발행 (API 키 불필요)
+- [x] GitHub 레포 생성 (noble00305/ai-content-agent) + Vercel 배포 완료
 
 ## Phase 2: 자율성 강화
 - [ ] Memory 시스템 구축
@@ -50,3 +50,9 @@
 - 블로그 + 관리자 대시보드 구축
 - GitHub Actions 스케줄 설정
 - Next.js 빌드 성공 확인
+
+### 2026-06-21
+- Phase 1 완료 (GitHub + Vercel 배포)
+- 첫 실제 글 2편 발행 (GPT-5.5 환각, 노르웨이 AI 교육)
+- AI 오버뷰 대응 원칙 CLAUDE.md에 추가
+- Phase 2 시작
