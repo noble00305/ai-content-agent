@@ -72,6 +72,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       </Link>
 
       <article>
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <img
+            src={`/api/og?title=${encodeURIComponent(post.meta.title)}&category=${encodeURIComponent(post.meta.category)}`}
+            alt={post.meta.title}
+            className="w-full h-auto"
+          />
+        </div>
         <header className="mb-8">
           <span className="text-sm text-blue-600 font-medium">
             {post.meta.category}

@@ -23,6 +23,13 @@ export default function Home() {
           {posts.map((post) => (
             <article key={post.slug} className="border-b border-gray-100 pb-8">
               <Link href={`/posts/${post.slug}`} className="group">
+                <div className="rounded-lg overflow-hidden mb-4">
+                  <img
+                    src={`/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}`}
+                    alt={post.title}
+                    className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <span className="text-sm text-blue-600 font-medium">
                   {post.category}
                 </span>
