@@ -57,6 +57,12 @@ export default function Home() {
           ))}
         </div>
       )}
+
+      <footer className="mt-16 pt-8 border-t border-gray-200 text-sm text-gray-400 flex gap-4">
+        <Link href="/about" className="hover:text-gray-600">About</Link>
+        <Link href="/privacy" className="hover:text-gray-600">Privacy</Link>
+        <Link href="/contact" className="hover:text-gray-600">Contact</Link>
+      </footer>
     </main>
   );
 }
