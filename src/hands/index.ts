@@ -14,8 +14,8 @@ export async function executeAction(action: Action): Promise<void> {
       break;
     }
     case "optimize_post": {
-      console.log("[Hands] 최적화 액션은 Phase 2에서 구현");
-      action.status = "completed";
+      console.log("[Hands] optimize_post: 미구현 (GA 연동 후 구현 예정)");
+      action.status = "failed";
       break;
     }
     default:

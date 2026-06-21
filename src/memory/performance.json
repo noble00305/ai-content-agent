@@ -1,132 +1,44 @@
 [
   {
-    "slug": "gpt55-환각-오픈소스-ai-역전",
-    "title": "GPT-5.5 환각 논란 — 오픈소스 AI가 역전하는 시대가 왔다",
-    "category": "AI 뉴스",
-    "tags": [
-      "GPT-5.5",
-      "오픈소스 AI",
-      "환각",
-      "GLM",
-      "LLM 벤치마크"
-    ],
-    "publishedAt": "2026-06-20T09:00:00.000Z"
-  },
-  {
-    "slug": "노르웨이-초등학교-ai-금지-교육",
-    "title": "노르웨이, 초등학교 AI 사실상 전면 금지 — 한국 교육은 어디로?",
-    "category": "AI 뉴스",
-    "tags": [
-      "AI 교육",
-      "노르웨이",
-      "AI 규제",
-      "초등교육",
-      "디지털 교육"
-    ],
-    "publishedAt": "2026-06-20T14:00:00.000Z"
-  },
-  {
-    "slug": "ai-추론-비용-계산-냅킨-수학",
-    "title": "AI 추론 비용, 진짜 얼마나 드나 — 냅킨 수학으로 계산해봤다",
-    "category": "딥다이브 분석",
-    "tags": [
-      "AI 비용",
-      "추론 비용",
-      "LLM 운영",
-      "스케일링",
-      "인프라"
-    ],
-    "publishedAt": "2026-06-21T14:00:00.000Z"
-  },
-  {
-    "slug": "cloudflare-ai-에이전트-계정-리뷰",
-    "title": "Cloudflare가 AI 에이전트 전용 임시 계정을 만든 이유 — 개발자가 알아야 할 것",
-    "category": "AI 도구 리뷰",
-    "tags": [
-      "Cloudflare",
-      "AI 에이전트",
-      "인프라",
-      "개발자 도구",
-      "API"
-    ],
-    "publishedAt": "2026-06-21T09:00:00.000Z"
-  },
-  {
-    "slug": "ai-inference-cost-napkin-math",
-    "title": "AI 추론 비용, 진짜 얼마나 드나 — 냅킨 수학으로 계산해봤다",
-    "category": "딥다이브 분석",
-    "tags": [
-      "AI 비용",
-      "추론 비용",
-      "LLM 운영",
-      "스케일링",
-      "인프라"
-    ],
-    "publishedAt": "2026-06-21T14:00:00.000Z"
-  },
-  {
-    "slug": "cloudflare-ai-agent-temp-accounts",
-    "title": "Cloudflare가 AI 에이전트 전용 임시 계정을 만든 이유 — 개발자가 알아야 할 것",
-    "category": "AI 도구 리뷰",
-    "tags": [
-      "Cloudflare",
-      "AI 에이전트",
-      "인프라",
-      "개발자 도구",
-      "API"
-    ],
-    "publishedAt": "2026-06-21T09:00:00.000Z"
-  },
-  {
     "slug": "gpt55-hallucination-opensource-ai",
     "title": "GPT-5.5 환각 논란 — 오픈소스 AI가 역전하는 시대가 왔다",
     "category": "AI 뉴스",
-    "tags": [
-      "GPT-5.5",
-      "오픈소스 AI",
-      "환각",
-      "GLM",
-      "LLM 벤치마크"
-    ],
+    "tags": ["GPT-5.5", "오픈소스 AI", "환각", "GLM", "LLM 벤치마크"],
     "publishedAt": "2026-06-20T09:00:00.000Z"
   },
   {
     "slug": "norway-elementary-school-ai-ban",
     "title": "노르웨이, 초등학교 AI 사실상 전면 금지 — 한국 교육은 어디로?",
     "category": "AI 뉴스",
-    "tags": [
-      "AI 교육",
-      "노르웨이",
-      "AI 규제",
-      "초등교육",
-      "디지털 교육"
-    ],
+    "tags": ["AI 교육", "노르웨이", "AI 규제", "초등교육", "디지털 교육"],
     "publishedAt": "2026-06-20T14:00:00.000Z"
+  },
+  {
+    "slug": "ai-inference-cost-napkin-math",
+    "title": "AI 추론 비용, 진짜 얼마나 드나 — 냅킨 수학으로 계산해봤다",
+    "category": "딥다이브 분석",
+    "tags": ["AI 비용", "추론 비용", "LLM 운영", "스케일링", "인프라"],
+    "publishedAt": "2026-06-21T14:00:00.000Z"
+  },
+  {
+    "slug": "cloudflare-ai-agent-temp-accounts",
+    "title": "Cloudflare가 AI 에이전트 전용 임시 계정을 만든 이유 — 개발자가 알아야 할 것",
+    "category": "AI 도구 리뷰",
+    "tags": ["Cloudflare", "AI 에이전트", "인프라", "개발자 도구", "API"],
+    "publishedAt": "2026-06-21T09:00:00.000Z"
   },
   {
     "slug": "startupwiki-vs-crunchbase-comparison",
     "title": "StartupWiki vs Crunchbase — 무료 스타트업 데이터베이스 비교 분석",
     "category": "AI 도구 리뷰",
-    "tags": [
-      "StartupWiki",
-      "Crunchbase",
-      "스타트업 도구",
-      "데이터베이스",
-      "무료 도구"
-    ],
+    "tags": ["StartupWiki", "Crunchbase", "스타트업 도구", "데이터베이스", "무료 도구"],
     "publishedAt": "2026-06-21T21:00:00.000Z"
   },
   {
     "slug": "when-to-reject-ai-code",
     "title": "AI가 짠 코드, 작동해도 거부해야 할 때 — 시니어 개발자의 판단 기준",
     "category": "AI 활용법",
-    "tags": [
-      "AI 코딩",
-      "코드 리뷰",
-      "개발자",
-      "코파일럿",
-      "코드 품질"
-    ],
+    "tags": ["AI 코딩", "코드 리뷰", "개발자", "코파일럿", "코드 품질"],
     "publishedAt": "2026-06-21T18:00:00.000Z"
   }
 ]
