@@ -21,13 +21,14 @@
 - [x] Claude Code 직접 실행으로 첫 글 2편 발행 (API 키 불필요)
 - [x] GitHub 레포 생성 (noble00305/ai-content-agent) + Vercel 배포 완료
 
-## Phase 2: 자율성 강화 (진행중)
+## Phase 2: 자율성 강화 (완료)
 - [x] SEO 자동 최적화 (sitemap, robots, JSON-LD, OpenGraph, 관련 글)
 - [x] Memory 시스템 고도화 (성과 추적, 분석 요약, 글 동기화)
 - [x] 관리자 대시보드 고도화 (실시간 통계, 전략, 실행 로그)
 - [x] Brain 자율 판단 로직 (Memory 기반 주제 결정, 카테고리 다양화)
-- [ ] Eyes: 성과 수집기 (GA, AdSense 연동) — GA 설정 후
-- [ ] SNS 자동 발행 (X, Instagram) — Phase 3로 이동
+- [x] GA 연동 완료 (G-FJ1X1Y186Y, gtag 삽입)
+- [ ] Eyes: GA 데이터 → Memory 자동 수집 — GA 데이터 쌓인 후
+- [ ] SNS 자동 발행 (X, Instagram) — 보류
 
 ## Phase 3: 확장 (완료)
 - [x] 숏폼 콘텐츠 자동 생성 (X 스레드, 인스타 캡션, 링크드인)
@@ -66,3 +67,39 @@
 - Brain 자율 판단 로직 완료
 - Phase 3 완료 (숏폼, RSS, A/B 테스트, 피드백 루프)
 - Phase 4 완료 (전략 자동 수정, 자율 실험, 완전 자율 체계)
+
+### 2026-06-21 (세션 2 — 검수 + 구조 수정)
+- 프로젝트 폴더 이동: ai-content-agent → Documents/자동화6(ai-content-agent)
+- 새 글 10편 커밋+푸시 (총 20편)
+- 검수 3라운드 실행:
+  - toSlug() 한글 허용 버그 제거
+  - performance.json 유령 레코드 4건 삭제
+  - strategy.json Phase 불일치 수정
+  - experiments.json 한글 슬러그 수정
+  - GitHub Actions daily-agent.yml 삭제
+  - optimize_post 거짓 completed → failed 변경
+  - next-mdx-remote 미사용 의존성 제거
+  - @anthropic-ai/sdk devDependencies로 이동
+  - admin 대시보드 비밀번호 인증 추가 (middleware.ts)
+- GA 연동 완료 (G-FJ1X1Y186Y)
+- About, Privacy, Contact 페이지 추가 (애드센스 필수 요건)
+- sitemap에 정적 페이지 3개 추가
+- LOW 검수 4건: 허수 함수 삭제, 정렬 수정, JSON 에러 핸들링, Guardian 문서화
+
+---
+
+## 다음 세션 할 일
+
+### 즉시 (글 30편 향해)
+1. 새 글 10편 작성 (총 30편 목표) — run-agent.md 사이클 실행
+2. Vercel 환경변수에 ADMIN_PASSWORD 설정 (Settings → Environment Variables)
+3. 원본 폴더 C:\Users\PC\ai-content-agent 삭제 확인
+
+### 1주일 후 (GA 데이터 쌓인 후)
+4. Search Console 색인 현황 확인 (20편 중 몇 편 색인됨?)
+5. GA 데이터 확인 — 어떤 글에 유입 있는지
+6. Memory 피드백 루프 연결 (GA → performance.json 자동 업데이트)
+
+### 50편 달성 후
+7. AdSense 신청
+8. 성과 기반 전략 자동 수정 활성화

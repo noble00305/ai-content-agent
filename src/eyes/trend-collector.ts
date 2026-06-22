@@ -2,7 +2,8 @@ import { TrendItem } from "../types";
 import { agentConfig } from "../../config/agent.config";
 
 const HN_API = "https://hacker-news.firebaseio.com/v0";
-const REDDIT_API = "https://www.reddit.com";
+const REDDIT_API = "https://old.reddit.com";
+const TECHMEME_RSS = "https://www.techmeme.com/feed.xml";
 
 // AI/테크 관련 키워드 필터
 const AI_KEYWORDS = [
@@ -58,9 +59,23 @@ export async function collectReddit(): Promise<TrendItem[]> {
     try {
       const res = await fetch(
         `${REDDIT_API}/r/${sub}/hot.json?limit=${config.topN}`,
-        { headers: { "User-Agent": "AIContentAgent/1.0" } }
+        {
+          headers: {
+            "User-Agent": "Mozilla/5.0 (compatible; AIContentAgent/1.0)",
+            "Accept": "application/json",
+          },
+        }
       );
-      const data = await res.json();
+      if (!res.ok) {
+        console.warn(`Reddit r/${sub} HTTP ${res.status}, 건너뜀`);
+        continue;
+      }
+      const text = await res.text();
+      if (text.startsWith("<")) {
+        console.warn(`Reddit r/${sub} HTML 응답, 건너뜀`);
+        continue;
+      }
+      const data = JSON.parse(text);
       const posts = data?.data?.children || [];
 
       for (const post of posts) {
@@ -85,21 +100,60 @@ export async function collectReddit(): Promise<TrendItem[]> {
   return results;
 }
 
+// === TechMeme RSS ===
+export async function collectTechMeme(): Promise<TrendItem[]> {
+  try {
+    const res = await fetch(TECHMEME_RSS, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; AIContentAgent/1.0)" },
+    });
+    if (!res.ok) {
+      console.warn(`[Eyes] TechMeme HTTP ${res.status}, 건너뜀`);
+      return [];
+    }
+    const xml = await res.text();
+    const items: TrendItem[] = [];
+    const itemRegex = /<item>\s*<title>([^<]*)<\/title>\s*<link>([^<]*)<\/link>/g;
+    let match;
+    let idx = 0;
+    while ((match = itemRegex.exec(xml)) !== null) {
+      const title = match[1].replace(/&amp;/g, "&").replace(/&apos;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+      const url = match[2];
+      if (isAIRelated(title)) {
+        items.push({
+          id: `tm-${idx}`,
+          title,
+          url,
+          source: "other" as const,
+          score: 50 - idx, // TechMeme은 편집 큐레이션이라 순서가 중요도
+          comments: 0,
+          collectedAt: new Date().toISOString(),
+        });
+        idx++;
+      }
+    }
+    return items;
+  } catch (e) {
+    console.warn("[Eyes] TechMeme 수집 실패:", e);
+    return [];
+  }
+}
+
 // === 메인 수집 함수 ===
 export async function collectAllTrends(): Promise<TrendItem[]> {
   console.log("[Eyes] 트렌드 수집 시작...");
 
-  const [hn, reddit] = await Promise.all([
+  const [hn, reddit, tm] = await Promise.all([
     collectHackerNews(),
     collectReddit(),
+    collectTechMeme(),
   ]);
 
-  const all = [...hn, ...reddit];
+  const all = [...hn, ...reddit, ...tm];
 
   // 점수 기준 정렬
   all.sort((a, b) => b.score - a.score);
 
-  console.log(`[Eyes] 수집 완료: HN ${hn.length}건, Reddit ${reddit.length}건, 총 ${all.length}건`);
+  console.log(`[Eyes] 수집 완료: HN ${hn.length}건, Reddit ${reddit.length}건, TechMeme ${tm.length}건, 총 ${all.length}건`);
 
   return all;
 }

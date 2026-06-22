@@ -3,7 +3,7 @@ export interface TrendItem {
   id: string;
   title: string;
   url: string;
-  source: "hackernews" | "reddit" | "twitter" | "other";
+  source: "hackernews" | "reddit" | "twitter" | "producthunt" | "other";
   score: number;
   comments: number;
   summary?: string;

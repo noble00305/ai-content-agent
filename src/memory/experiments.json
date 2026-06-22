@@ -16,7 +16,17 @@
     "type": "new_format",
     "description": "비교 분석 형식 (A vs B) 시도",
     "hypothesis": "비교 글은 롱테일 키워드에 강하고 AI 오버뷰 회피 가능",
-    "status": "planned",
-    "plannedAt": "2026-06-21"
+    "status": "completed",
+    "plannedAt": "2026-06-21",
+    "completedAt": "2026-06-21",
+    "result": "성공 - 비교 분석 글 5편 발행",
+    "resultSlugs": [
+      "startupwiki-vs-crunchbase-comparison",
+      "v0-vs-bolt-vs-replit-nocode-ai",
+      "local-llm-comparison-guide-2026",
+      "ai-coding-tools-comparison-2026",
+      "open-source-llm-coding-kimi-deepseek"
+    ],
+    "learning": "비교 형식이 전체 20편 중 5편(25%)로 자연스럽게 많이 생산됨. vs 키워드가 제목에 들어가면 검색 의도에 부합. 비교표 필수 포함이 콘텐츠 가치를 높임."
   }
 ]
