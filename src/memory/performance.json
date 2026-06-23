@@ -1,18 +1,5 @@
 [
   {
-    "slug": "gpt55-hallucination-opensource-ai",
-    "title": "GPT-5.5 환각 논란 — 오픈소스 AI가 역전하는 시대가 왔다",
-    "category": "AI 뉴스",
-    "tags": [
-      "GPT-5.5",
-      "오픈소스 AI",
-      "환각",
-      "GLM",
-      "LLM 벤치마크"
-    ],
-    "publishedAt": "2026-06-20T09:00:00.000Z"
-  },
-  {
     "slug": "norway-elementary-school-ai-ban",
     "title": "노르웨이, 초등학교 AI 사실상 전면 금지 — 한국 교육은 어디로?",
     "category": "AI 뉴스",
@@ -131,19 +118,6 @@
     "publishedAt": "2026-06-22T10:00:00.000Z"
   },
   {
-    "slug": "generative-ai-revenue-trends-2026",
-    "title": "생성형 AI 앱 수익 232% 급증 — 2026년 시장 데이터 분석",
-    "category": "AI 뉴스",
-    "tags": [
-      "AI 시장",
-      "생성형 AI",
-      "AI 수익",
-      "AI 투자",
-      "시장 분석"
-    ],
-    "publishedAt": "2026-06-21T18:00:00.000Z"
-  },
-  {
     "slug": "how-to-write-ai-proof-content",
     "title": "AI 시대 콘텐츠 차별화 전략 — AI가 못 하는 5가지 + 실전 체크리스트",
     "category": "딥다이브 분석",
@@ -210,19 +184,6 @@
     "publishedAt": "2026-06-21T22:00:00.000Z"
   },
   {
-    "slug": "open-source-llm-coding-kimi-deepseek",
-    "title": "오픈소스 LLM으로 코딩하기 — Kimi K2.6 vs DeepSeek V4 vs GLM-5",
-    "category": "AI 활용법",
-    "tags": [
-      "오픈소스 LLM",
-      "Kimi K2.6",
-      "DeepSeek V4",
-      "GLM-5",
-      "코딩 AI"
-    ],
-    "publishedAt": "2026-06-22T08:00:00.000Z"
-  },
-  {
     "slug": "postgres-benchmark-cloud-services-comparison",
     "title": "클라우드 Postgres 서비스 비교 — 상황별 선택 가이드",
     "category": "개발 트렌드",
@@ -260,5 +221,122 @@
       "구글 검색"
     ],
     "publishedAt": "2026-06-21T14:00:00.000Z"
+  },
+  {
+    "slug": "reliable-agentic-ai-systems-design",
+    "title": "신뢰할 수 있는 AI 에이전트 시스템 설계 — Martin Fowler 팀이 정리한 실전 원칙",
+    "category": "개발 트렌드",
+    "tags": [
+      "AI 에이전트",
+      "시스템 설계",
+      "Martin Fowler",
+      "RAG",
+      "LLM 신뢰성"
+    ],
+    "publishedAt": "2026-06-22T09:00:00.000Z"
+  },
+  {
+    "slug": "ai-humanizer-apps-education-impact",
+    "title": "AI 탐지 회피 앱 'Humanizer' 급부상 — 교육 현장의 군비 경쟁이 시작됐다",
+    "category": "AI 뉴스",
+    "tags": [
+      "AI 탐지",
+      "Humanizer",
+      "AI 교육",
+      "Turnitin",
+      "학술 무결성"
+    ],
+    "publishedAt": "2026-06-22T18:00:00.000Z"
+  },
+  {
+    "slug": "jane-street-ai-trading-investment",
+    "title": "Jane Street의 AI 베팅 — 월가 최강 트레이딩 회사가 CoreWeave·Anthropic에 투자하는 이유",
+    "category": "AI 뉴스",
+    "tags": [
+      "Jane Street",
+      "CoreWeave",
+      "Anthropic",
+      "AI 투자",
+      "퀀트 트레이딩"
+    ],
+    "publishedAt": "2026-06-23T09:00:00.000Z"
+  },
+  {
+    "slug": "europe-2031-ai-competition-crisis",
+    "title": "EU의 AI 경쟁 위기 — 'Europe 2031' 시나리오가 던지는 경고",
+    "category": "딥다이브 분석",
+    "tags": [
+      "EU AI",
+      "AI 경쟁",
+      "AI 지정학",
+      "Europe 2031",
+      "AI 정책"
+    ],
+    "publishedAt": "2026-06-23T14:00:00.000Z"
+  },
+  {
+    "slug": "allbirds-smartbird-ai-pivot",
+    "title": "Allbirds에서 Smartbird로 — 신발 회사가 AI 인프라 회사로 피봇한 기이한 사례",
+    "category": "AI 뉴스",
+    "tags": [
+      "Smartbird",
+      "Allbirds",
+      "AI 피봇",
+      "AI 인프라",
+      "스타트업 전략"
+    ],
+    "publishedAt": "2026-06-23T18:00:00.000Z"
+  },
+  {
+    "slug": "google-ipv6-50-percent-developer-impact",
+    "title": "Google IPv6 50% 돌파 — 개발자가 지금 점검해야 할 것",
+    "category": "개발 트렌드",
+    "tags": [
+      "IPv6",
+      "인터넷 인프라",
+      "네트워크",
+      "Google",
+      "개발자 실무"
+    ],
+    "publishedAt": "2026-06-24T09:00:00.000Z"
+  },
+  {
+    "slug": "ai-agent-workflow-automation-guide",
+    "title": "AI 에이전트로 반복 업무 자동화하기 — 실전 워크플로우 5가지",
+    "category": "AI 활용법",
+    "tags": [
+      "AI 에이전트",
+      "업무 자동화",
+      "워크플로우",
+      "생산성",
+      "AI 활용"
+    ],
+    "publishedAt": "2026-06-24T14:00:00.000Z"
+  },
+  {
+    "slug": "perplexity-vs-chatgpt-search-vs-ai-overview",
+    "title": "Perplexity vs ChatGPT Search vs Google AI Overview — AI 검색 엔진 3종 비교",
+    "category": "AI 도구 리뷰",
+    "tags": [
+      "Perplexity",
+      "ChatGPT Search",
+      "Google AI Overview",
+      "AI 검색",
+      "검색 엔진"
+    ],
+    "publishedAt": "2026-06-24T18:00:00.000Z"
+  },
+  {
+    "slug": "ai-writing-literary-prize-controversy",
+    "title": "AI 글쓰기 문학상 논란 — Granta가 수상작 출판을 중단한 이유",
+    "category": "AI 뉴스",
+    "tags": [
+      "AI 글쓰기",
+      "문학상",
+      "Granta",
+      "AI 창작",
+      "저작권"
+    ],
+    "publishedAt": "2026-06-25T09:00:00.000Z"
   }
 ]

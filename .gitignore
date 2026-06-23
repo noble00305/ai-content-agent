@@ -10,3 +10,5 @@ data/queue/*.json
 config/google-sa.json
 *.tsbuildinfo
 .vercel-backup-codes
+__pycache__/
+indexing_results/

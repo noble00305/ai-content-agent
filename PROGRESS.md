@@ -86,20 +86,36 @@
 - sitemap에 정적 페이지 3개 추가
 - LOW 검수 4건: 허수 함수 삭제, 정렬 수정, JSON 에러 핸들링, Guardian 문서화
 
+### 2026-06-23 (세션 — 기존 30편 팩트 점검)
+- **30편 전수 팩트 검증** (병렬 감사 에이전트 4배치 + 웹 검증) → `FACT-CHECK-2026-06-23.md`
+- **시스템 차원 문제 발견**: 콘텐츠 생성기가 ① 존재하지 않는 미래 제품에 정밀 벤치마크 부착 ② 실존 기관/논문에 가짜 숫자 부착 ③ 출처 오귀속
+- **HIGH 4편 격리** (`content/_quarantine/`로 이동, git 복구 가능):
+  - gpt55-hallucination-opensource-ai (GPT-5.5·GLM-5.2 가공 모델) — 폐기 권장
+  - open-source-llm-coding-kimi-deepseek (Kimi K2.6·DeepSeek V4·GLM-5.1 가공) — 폐기 권장
+  - generative-ai-revenue-trends-2026 (제목부터 거짓 수치) — 재작성 후 복귀 가능
+  - cognitive-debt-vs-technical-debt (MIT 논문 오귀속) — 재작성 후 복귀 가능
+- **명백한 허위 surgical 수정**:
+  - jane-street: "Anthropic 지분 투자"(허위) 삭제, $21.9B→$20.5B, $6B 계약 맥락 추가
+  - europe-2031: 저자 오귀속 정정 (Guardian 기자 → Arq Foundation 작성)
+  - multi-agent: "1,445% 급증(LangChain)" 가공 수치 삭제
+- **발행 글 30→26편**, performance.json·posts-data.json 26편으로 동기화 재빌드
+- **재발 방지 규칙** CLAUDE.md "팩트 무결성 규칙" 추가
+
 ---
 
 ## 다음 세션 할 일
 
-### 즉시 (글 30편 향해)
-1. 새 글 10편 작성 (총 30편 목표) — run-agent.md 사이클 실행
-2. Vercel 환경변수에 ADMIN_PASSWORD 설정 (Settings → Environment Variables)
-3. 원본 폴더 C:\Users\PC\ai-content-agent 삭제 확인
+### 즉시
+1. **Search Console 색인 요청** — `gsc_request_indexing.py`로 자동화 (자동화5에서 이식). Selenium이 GSC 로그인 Chrome 프로필로 URL 검사 → "색인 생성 요청" 자동 클릭. `python gsc_request_indexing.py --dry-run`으로 대상 확인 후 실행. URL은 posts-data.json(26편)+정적4 자동 수집.
+   - 주의: `gsc_base` resource_id는 URL-prefix 속성 기준. 도메인 속성이면 GSC 실제 URL 확인 후 교체. 할당량(6/22 초과 이력) 있으면 quota 감지 후 자동 중단.
+2. 격리한 HIGH 4편 최종 처분 결정: 폐기 vs 재작성 (2편은 실측 데이터로 재작성 가능)
+3. MEDIUM 글들의 미검증 "HN ○○점" 일괄 정리 (FACT-CHECK 보고서 참고)
 
 ### 1주일 후 (GA 데이터 쌓인 후)
-4. Search Console 색인 현황 확인 (20편 중 몇 편 색인됨?)
+4. site: 검색으로 색인 현황 확인
 5. GA 데이터 확인 — 어떤 글에 유입 있는지
 6. Memory 피드백 루프 연결 (GA → performance.json 자동 업데이트)
 
-### 50편 달성 후
-7. AdSense 신청
-8. 성과 기반 전략 자동 수정 활성화
+### 색인 + 유입 확인 후
+7. 글 추가 발행 재개 (하루 1편 이하, **팩트 무결성 규칙 준수**)
+8. 50편 목표 점진적 발행 → AdSense 신청
