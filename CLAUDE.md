@@ -5,16 +5,26 @@ AI 자율 콘텐츠 발행 에이전트. 테크/AI 분야 블로그 + SNS 자동
 광고 수익 기반 비즈니스 모델. 사이트: https://ai-content-agent-seven.vercel.app
 
 ## 명령어 가이드
-- **"글 써줘" / "오늘 사이클 돌려"** → `scripts/run-agent.md` 지시서 따라 전체 사이클 실행
+- **"주간 사이클"** → 🔴 최우선. `EXPERIMENT-CHARTER.md`(8주 실험 헌법) §4 절차 그대로 실행. 헌법은 AI가 수정 불가. 다른 판단 전에 헌법 전문부터 읽을 것
+- **"전략 사이클 돌려" / "하네스 돌려"** → `scripts/strategy-harness.md` 따라 병목 진찰→전략탐색→실행→개선 1사이클 (최상위 의사결정 루프)
+- **"글 써줘" / "오늘 사이클 돌려"** → `scripts/run-agent.md` 지시서 따라 전체 사이클 실행 (⚠️ 전략 하네스가 crawl 병목이라 판단하면 양산 자제)
 - **"주간 회고"** → `scripts/weekly-review.md` 따라 주간 분석 + 전략 수정
 - **"이어서 하자"** → PROGRESS.md 확인 후 다음 할 일 진행
 - **"실험 해봐"** → `src/memory/experiments.json`에서 planned 실험 실행
 
 ## 핵심 파일
+- `EXPERIMENT-CHARTER.md`: **8주 실험 헌법** (2026-07-10~09-06) — 킬라인·주차 임무·주간 사이클 절차. AI 수정 금지
+- `scripts/strategy-harness.md`: **전략 하네스** — 병목 기반 진찰/실행/개선 루프 (매몰 방지)
+- `src/memory/strategy-board.json`: 하네스 상태 (funnel 스냅샷·bets·backlog·learnings·rules)
 - `scripts/run-agent.md`: 일일 사이클 실행 지시서 (7단계)
 - `scripts/weekly-review.md`: 주간 회고 지시서
 - `PROGRESS.md`: 진행 상황 추적
 - `ARCHITECTURE.md`: 전체 시스템 설계서
+
+## 전략 원칙 (2026-07-10 — 하네스 도입)
+- **병목만 공략**: 깔때기(발견→크롤→색인→랭킹→유입→수익)에서 가장 왼쪽 깨진 단계만. 현재=크롤.
+- **양산 ≠ 성장**: crawl이 병목일 때 글 더 쓰는 건 무의미(실측: 26편·백링크24개에도 크롤 0).
+- **측정된 개선 없이 같은 레버 재실행 금지** (수동 색인요청·저도달 백링크는 무력 확인됨).
 
 ## 아키텍처 (5개 모듈)
 - Brain (src/brain/): 의사결정 엔진 - 모든 판단의 중심

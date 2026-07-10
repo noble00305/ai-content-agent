@@ -1,0 +1,121 @@
+{
+  "updated": "2026-07-10",
+  "north_star": "검색 유입 기반 광고 수익. 선행 중간지표: 색인된 글 수 → 월 검색 유입 세션 → 광고 노출.",
+  "funnel": {
+    "stages": ["discovered", "crawled", "indexed", "ranked", "traffic_30d", "revenue"],
+    "rule": "가장 왼쪽에서 깨진(=0이거나 정체된) 단계가 이번 사이클의 유일한 공략 대상(병목)이다. 병목보다 오른쪽 단계를 손대지 않는다.",
+    "snapshots": [
+      {
+        "date": "2026-07-10",
+        "discovered": 29,
+        "crawled": 0,
+        "indexed": 0,
+        "ranked": 0,
+        "traffic_30d": 0,
+        "revenue": 0,
+        "bottleneck": "crawled",
+        "note": "GSC vercel 속성: 29 URL discovered, 전부 '최종 크롤링: 해당사항 없음'. 온사이트 기술 SEO 만점(홈→26편 SSR 링크, 글 상호링크 3개, canonical, JSON-LD, sitemap lastmod). 원인=신규 vercel.app 서브도메인의 권위/크롤예산 0. Google+Bing site: 검색 0건."
+      },
+      {
+        "date": "2026-07-10",
+        "cycle": "W0 주간 사이클",
+        "vercel_control": { "discovered": 29, "crawled": 0, "indexed": 0, "source": "GSC 동일자 오전 측정 재사용 + 다음 site: 검색 0건(WebFetch 실측), Bing은 CAPTCHA로 미확인" },
+        "tistory": { "published": 0, "indexed": "해당없음(계정 미개설)", "traffic": "해당없음", "affiliate_clicks": "해당없음" },
+        "bottleneck": "crawled",
+        "note": "W0 첫 주간 사이클. 티스토리 계정 미확정이라 실험군 측정 항목 없음."
+      }
+    ]
+  },
+  "bets": [
+    {
+      "id": "B-001",
+      "from_backlog": "S-tistory (확장: 제휴 결정콘텐츠 8주 검증)",
+      "hypothesis": "티스토리에 결정 콘텐츠 5편 이식+제휴 재편성하면 8주 내 색인→유입→제휴클릭 발생",
+      "charter": "EXPERIMENT-CHARTER.md (킬라인 K1=W4 색인, K2=W8 제휴클릭≥1, 예산 ₩30,000)",
+      "targets_stage": "crawled→indexed→traffic",
+      "metric": "티스토리 글 색인 수(W4), 제휴 클릭 누적(W8)",
+      "started": "2026-07-10",
+      "check_on": ["2026-08-09", "2026-09-06"],
+      "status": "running",
+      "current_week": "W0",
+      "killlines": {
+        "K1": { "판정일": "2026-08-09", "조건": "티스토리 색인 0건이면 표면교체 1회", "상태": "대기 (티스토리 미발행)" },
+        "K2": { "판정일": "2026-09-06", "조건": "제휴클릭 누적 0건이면 중단", "상태": "대기" },
+        "K3": { "예산사용": 0, "상한": 30000 }
+      },
+      "did": [
+        "2026-07-10: 헌법 제정, 하네스 배선 완료",
+        "2026-07-10 (W0 사이클): 측정 완료(다음 site: 0건 실측, GSC 29/0 동일자 재사용, Bing CAPTCHA 미확인)",
+        "2026-07-10 (W0 사이클): 임무② 니치 리서치 완료 → 니치 3개 확정(쿠팡파트너스×AI하드웨어[주채널], ElevenLabs 등 콘텐츠 SaaS, Railway 등 클라우드). research/affiliate-niche-research-2026-07-10.md",
+        "2026-07-10 (W0 사이클): 임무③ 5편 선별+재검증 완료 → ai-coding-tools, best-free-ai-tools, v0-bolt-replit, perplexity-search-3, local-llm. 4편 MAJOR·1편 MINOR, 수정 목록 확보(FACT-CHECK-TISTORY5-2026-07-10.md). 수정 후 이식 필수",
+        "W0 잔여: 임무① 티스토리 계정 확정(사장님 답 대기) — W1 이식의 유일한 블로커"
+      ]
+    },
+    {
+      "id": "B-002",
+      "from_backlog": "S-observe",
+      "hypothesis": "vercel을 동결(신규 발행 0)한 채 두면 시간만으로 크롤이 시작되는지 — 대조군",
+      "targets_stage": "crawled",
+      "metric": "주간 GSC 크롤 페이지 수 (기준선: 2026-07-10 = 0)",
+      "started": "2026-07-10",
+      "check_on": ["매주 주간 사이클에서"],
+      "status": "running"
+    }
+  ],
+  "deviations": [],
+  "backlog": [
+    {
+      "id": "S-tistory",
+      "hypothesis": "발행 타깃을 티스토리(xxx.tistory.com)로 전환/병행하면 부모 도메인(카카오) 권위·크롤예산을 상속받아 크롤·색인이 며칠 내 발생한다.",
+      "targets_stage": "crawled",
+      "ice": { "impact": 5, "confidence": 4, "effort": 3 },
+      "metric": "발행 후 7일 내 티스토리 글의 다음/구글 색인 여부(site: 검색)",
+      "status": "candidate",
+      "notes": "엔진(수집→생성→발행)은 재사용, 발행 어댑터만 교체. 계정 필요. 구글 랭킹은 여전히 품질 싸움(helpful-content)."
+    },
+    {
+      "id": "S-domain",
+      "hypothesis": "커스텀 도메인 연결로 vercel.app 서브도메인 저신뢰 요인을 제거하면 크롤 확률이 오른다.",
+      "targets_stage": "crawled",
+      "ice": { "impact": 2, "confidence": 3, "effort": 3 },
+      "metric": "도메인 연결 후 3주 내 GSC 크롤된 페이지 수",
+      "status": "candidate",
+      "notes": "vercel.app 저신뢰는 병목의 작은 조각일 뿐(신규성·백링크0·AI양산이 더 큼). 소유권/이전성 측면 가치는 있으나 색인 스위치 아님."
+    },
+    {
+      "id": "S-observe",
+      "hypothesis": "아무것도 안 바꾸고 4주 관찰하면 신규 사이트가 시간만으로 크롤되기 시작한다(신규 사이트 정상 지연 가설).",
+      "targets_stage": "crawled",
+      "ice": { "impact": 2, "confidence": 3, "effort": 1 },
+      "metric": "매주 GSC 크롤 페이지 수 추이",
+      "status": "candidate",
+      "notes": "비용 0. 다른 bet과 병행 가능한 대조군."
+    },
+    {
+      "id": "S-quality-depth",
+      "hypothesis": "적은 수라도 실측 데이터·독자적 관점으로 깊이를 크게 올리면 helpful-content 필터를 통과해 랭킹이 붙는다.",
+      "targets_stage": "ranked",
+      "ice": { "impact": 4, "confidence": 3, "effort": 4 },
+      "metric": "색인된 글의 검색 노출/평균 순위(GSC 실적)",
+      "status": "parked",
+      "notes": "병목(crawl)보다 오른쪽 단계. crawl이 뚫린 뒤 활성화."
+    }
+  ],
+  "learnings": [
+    { "date": "2026-07-10", "claim": "GSC 수동 '색인 생성 요청'은 계정 quota를 자동화5와 공유해 항상 첫 URL부터 초과. 재시도 무의미.", "evidence": "6/23·7/10 모두 30개 전부 quota_exceeded, requested 0건." },
+    { "date": "2026-07-10", "claim": "쓰레드 댓글 백링크(nofollow·저도달)는 구글 크롤예산을 못 움직인다.", "evidence": "자동화4가 6/20~6/26 ~24개 백링크 게시, 조회 50~130, 그럼에도 vercel 크롤 여전히 0." },
+    { "date": "2026-07-10", "claim": "병목은 온사이트가 아니다. 온사이트 기술 SEO는 만점.", "evidence": "홈 26편 SSR 링크, 글 상호링크 3, 본문 SSR 30KB, canonical/JSON-LD/sitemap lastmod 정상, robots/ noindex 이상 없음." },
+    { "date": "2026-07-10", "claim": "티스토리가 잘 노출되는 건 콘텐츠가 아니라 부모 도메인 권위 상속 + 다음 자사 우대 때문. vercel.app은 배포플랫폼이라 신규 서브도메인 신뢰 0.", "evidence": "관찰/도메인 구조 분석." },
+    { "date": "2026-07-10", "claim": "AI 코딩툴(Cursor/Windsurf/Replit)은 크레딧 추천만 있어 블로거 현금 수익화 불가. 현금 커미션은 클라우드 인프라(Railway 15%×12mo 심사없음, DigitalOcean 10%×12mo)와 콘텐츠 SaaS(ElevenLabs 22%, Writesonic 20%)에 있음.", "evidence": "W0 니치 리서치(공식 페이지 실측). research/affiliate-niche-research-2026-07-10.md" },
+    { "date": "2026-07-10", "claim": "국내 AI 서비스에는 블로거용 현금 제휴가 사실상 없음(뤼튼=적립금 초대코드뿐, 클로바X=2026-04 종료). 8주 내 '클릭 1건'에는 쿠팡 파트너스(심사 0, 당일 링크)가 가장 현실적 — 최종승인(15만원)은 출금 조건이지 클릭 측정 조건이 아님.", "evidence": "W0 니치 리서치. research/affiliate-niche-research-2026-07-10.md" },
+    { "date": "2026-07-10", "claim": "이식 후보 5편 재검증 결과 4편 MAJOR(가공 가격·VRAM 허위·출처 오귀속·구조적 구식화). 6/23 점검을 통과한 글도 '비교표의 정밀 수치'는 재검증 없이 재사용 불가 — 이식 전 수치 전수 재확인이 기본 절차여야 함.", "evidence": "FACT-CHECK-TISTORY5-2026-07-10.md (에이전트 5개 웹 검증)" }
+  ],
+  "rules": [
+    "가장 왼쪽에서 깨진 단계(병목)만 공략한다. 병목 오른쪽은 parked.",
+    "같은 레버를 '측정된 개선' 없이 두 번 돌리지 않는다.",
+    "모든 bet은 겨냥 지표 + 확인일이 있어야 한다. 없으면 bet이 아니라 잡담.",
+    "동시에 최소 2개 bet을 살려 다양성 유지. 하나의 레버에 매몰 금지.",
+    "한 단계가 3사이클 연속 무변화면 구조적으로 다른 전략으로 점프한다(예: 플랫폼 전환).",
+    "실행 전 웹 리서치로 '지금 실제 통하는 방법'을 확인한다(과거 지식만으로 판단 금지)."
+  ]
+}

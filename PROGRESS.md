@@ -100,6 +100,36 @@
   - multi-agent: "1,445% 급증(LangChain)" 가공 수치 삭제
 - **발행 글 30→26편**, performance.json·posts-data.json 26편으로 동기화 재빌드
 - **재발 방지 규칙** CLAUDE.md "팩트 무결성 규칙" 추가
+- **커밋+푸시(004e7e5) → Vercel 배포 완료**, 라이브 검증(격리글 404, 유지글 200, 사이트맵 26편)
+- **색인 자동화 이식**: `gsc_request_indexing.py`(자동화5 기반) + quota 증거 로깅 추가. 당일 vercel 속성 할당량 소진(6/22)으로 0건 — 코드 버그 아님
+- **GSC 사이트맵 제출 "성공"**: 6/22 "가져올 수 없음"은 삭제→재등록으로 해결(파일 자체는 정상이었음). 26편 색인 큐 등록 → 1~3주 뒤 색인 현황 확인
+
+### 2026-07-10 (세션 — 상태 점검 + 전략 하네스 도입)
+- **색인 상태 점검**: Google·Bing site: 검색 0건. GSC vercel 속성 확인 → 29 URL discovered, **전부 '최종 크롤링: 해당사항 없음'(미크롤)**, 색인 0.
+- **원인 확정**: 온사이트 기술 SEO 만점(홈 26편 SSR 링크, 글 상호링크 3, 본문 SSR, canonical, JSON-LD, sitemap lastmod, robots/noindex 정상) → 병목은 온사이트가 아니라 **신규 vercel.app 서브도메인의 도메인 권위/크롤예산 0**.
+- **확정된 learnings**:
+  - 수동 색인요청(`gsc_request_indexing.py`)은 자동화5와 계정 quota 공유 → 항상 첫 URL부터 quota_exceeded. 6/23·7/10 모두 0건 제출. **막다른 길**.
+  - 자동화4 쓰레드 백링크는 이미 6/20~6/26 ~24개 게시했으나 조회 50~130·크롤 0 → **nofollow 저도달 백링크는 크롤 못 뚫음**.
+  - 티스토리 노출 우위 = 부모도메인(카카오) 권위 상속 + 다음 자사 우대. vercel.app은 배포플랫폼이라 신규 서브도메인 신뢰 0.
+- **전략 하네스 구축** (하나에 매몰 방지):
+  - `scripts/strategy-harness.md` — 병목 진찰→탐색→선택→실행→개선 5단계 루프 ("전략 사이클 돌려")
+  - `src/memory/strategy-board.json` — funnel 스냅샷·bets·backlog·learnings·rules
+  - `strategy.json`·`CLAUDE.md` 갱신(양산 지양, 병목만 공략 원칙)
+- **다음**: SELECT 단계 — backlog에서 bet 확정(유력: S-tistory). 티스토리 계정 유무가 관건.
+- **(후반) 8주 실험 헌법 제정**: 목표 재정의(B: 자율 에이전트 자체가 목표, 블로그는 증거 생성 장치) → AdSense 모델 폐기, 제휴 결정콘텐츠로 피벗 → `EXPERIMENT-CHARTER.md` 제정 (W0=7/10, K1=8/9 색인, K2=9/6 제휴클릭, 예산 ₩30,000). bets: B-001(티스토리 8주 검증), B-002(vercel 동결 대조군). **콜드 스타트 배선 완료**: "주간 사이클" → CLAUDE.md/자동메모리 → 헌법 §4. W0 잔여: 티스토리 계정 확정(사장님), 니치 리서치, 5편 선별.
+
+### 2026-07-10 (세션 — 주간 사이클 W0)
+- **헌법 §4 절차로 첫 주간 사이클 실행** (주차 판정: W0, 7/10–7/12)
+- **측정**: 티스토리 해당없음(계정 미개설) / [vercel 대조군] 다음 site: 0건(WebFetch 실측), GSC 29 discovered·크롤 0(동일자 오전 측정 재사용), Bing은 CAPTCHA로 미확인 → strategy-board funnel.snapshots append + 킬라인 상태 필드 추가
+- **임무② 니치 리서치 완료** (병렬 에이전트 3개, 공식 페이지 실측) → `research/affiliate-niche-research-2026-07-10.md`
+  - 니치 3개 확정: ①쿠팡 파트너스×AI 하드웨어/도서(주채널 — 심사 0, K2 클릭 지표에 최적) ②AI 콘텐츠 SaaS(ElevenLabs 22% recurring·쿠키 90일·최소지급 $5, Writesonic 20%, Gamma) ③개발자 클라우드(Railway 15%×12mo 심사없음, DigitalOcean 10%×12mo)
+  - 확인된 막다른 길: Cursor/Windsurf/Replit=크레딧만, Copilot/Bolt/Supabase=프로그램 없음, Notion=모집 중단, 뤼튼=적립금뿐, 클로바X=서비스 종료
+- **임무③ 결정형 5편 선별 + 팩트 재검증 완료** (병렬 에이전트 5개) → `FACT-CHECK-TISTORY5-2026-07-10.md`
+  - 선별: ai-coding-tools-comparison / best-free-ai-tools / v0-vs-bolt-vs-replit / perplexity-vs-chatgpt-search / local-llm-comparison
+  - 결과: **4편 MAJOR, 1편 MINOR** — 가공 가격(v0 $50, Replit $220), VRAM 표 허위(최대 10배), 출처 오귀속(SO→GitHub), 가공 인용("소프트웨어 팩토리"), 핵심 비교축 구식화(ChatGPT Search 무료화 미반영). **원문 그대로 이식 불가, 수정 목록 확보 → W1에서 수정+이식**
+- **임무① 티스토리 계정 확정**: 사장님 답 대기 (W1 유일 블로커)
+- 예산 사용 ₩0/30,000. 이탈(deviation) 없음
+- 다음: W1(7/13~) — 계정 확정되면 5편 수정→제휴 재편성→티스토리 발행(발행 직전 승인), 쿠팡 파트너스·Railway·ElevenLabs 가입(계정 생성 승인 필요)
 
 ---
 
