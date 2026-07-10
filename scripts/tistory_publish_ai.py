@@ -69,6 +69,45 @@ def load_v22():
     return mod
 
 
+def _normalize_cat(s):
+    """카테고리명 비교용 정규화: 앞의 '- ' 제거, 가운뎃점 이형(·ㆍ・•) 통일, 공백 제거."""
+    s = re.sub(r"^-\s*", "", s.strip())
+    for dot in "ㆍ・•":
+        s = s.replace(dot, "·")
+    return s.replace(" ", "")
+
+
+def resolve_category(publisher, driver):
+    """에디터의 카테고리 드롭다운에서 실제 옵션을 읽어 CONFIG 카테고리와 매칭.
+    가운뎃점/공백 차이는 허용하고, 화면에 있는 정확한 문자열로 publisher.category를 교체.
+    매칭 실패 시 False (발행 중단용)."""
+    target = _normalize_cat(CONFIG["category"])
+    driver.get(CONFIG["blog_url"] + "/manage/newpost")
+    time.sleep(3)
+    try:
+        driver.switch_to.alert.dismiss()
+        time.sleep(2)
+    except Exception:
+        pass
+    time.sleep(4)
+    driver.execute_script("var btn = document.querySelector('.btn-category'); if (btn) btn.click();")
+    time.sleep(2)
+    options = driver.execute_script(
+        "return Array.from(document.querySelectorAll('span.mce-text')).map(function(s){return s.textContent.trim();});"
+    ) or []
+    for opt in options:
+        if _normalize_cat(opt) == target:
+            exact = re.sub(r"^-\s*", "", opt.strip())
+            if exact != CONFIG["category"]:
+                print("  카테고리 자동 매칭: '" + CONFIG["category"] + "' → 화면 표기 '" + exact + "'")
+            publisher.category = exact
+            return True
+    print("  ❌ 카테고리 '" + CONFIG["category"] + "' 를 드롭다운에서 못 찾음.")
+    print("     드롭다운 옵션: " + " | ".join(o for o in options if o))
+    print("     관리자 > 카테고리에서 이름 확인 후 재실행하세요.")
+    return False
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     only = None
@@ -121,6 +160,10 @@ def main():
     print("\nChrome 디버그 세션 연결 중...")
     if not publisher.connect():
         print("연결 실패 — launch_chrome_debug.py 실행 + 티스토리 로그인 확인")
+        return
+
+    print("\n카테고리 확인 중...")
+    if not resolve_category(publisher, publisher.driver):
         return
 
     ok = 0
