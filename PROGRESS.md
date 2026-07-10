@@ -147,6 +147,12 @@
   - Google Indexing API 서비스 계정 있음(발행 후 자동 색인 요청, eunho0927 성공 이력)
   - **eunho0927 구글 실측 확보**: 색인 2/29(7%), 90일 노출 587·클릭 0 → 구글 색인 기대치 하향, K1 통과의 현실 경로는 다음(Daum). strategy-board learnings 기록
   - 남은 준비: 초안 5편을 v22 입력 형식으로 변환(frontmatter→H1+태그/메타 라인), "AI·테크" 카테고리 신설, 그쪽 하네스 작업_history.md 포스트 인덱스와 중복 확인
+- **사장님 확정: "eunho로 가자"** → W1 발행 준비 완료
+  - 중복 확인: eunho0927 포스트 인덱스(금융 66편+잡글) — AI/테크 주제 겹침 없음. itmoneytree의 AI코딩도구·Perplexity 글은 타 블로그+각도 상이(사용법 vs 비교)로 허용
+  - `scripts/tistory_publish_ai.py` 작성 — v22 엔진 임포트 재사용(발행 파이프라인만, 1인칭 말투 프롬프트 미사용, 무효 확인된 Indexing API 미호출). --dry-run/--only/--manual 지원, 발행 성공 시 published/ 이동(중복 방지), 과거 예약일은 즉시 발행 전환
+  - `content/tistory-ready/` 5편 변환 완료 (H1+태그+메타). 예약: 7/13 ai-coding-tools, 7/15 free-ai-tools, 7/17 ai-search(W1 3편) / 7/20 nocode, 7/22 local-llm(W2 2편), 모두 08:30
+  - 검증: dry-run 통과, HTML 변환 실측(표 4개 렌더, HTML 주석·AFFILIATE 플레이스홀더 제거 확인, 태그/메타 추출 정상) — 제휴 링크는 W3에 발행글 수정으로 삽입(tistory_batch_update.py 참고)
+  - **발행 전 남은 것**: ①eunho0927에 "AI·테크" 카테고리 신설(관리자>카테고리, 이름 정확히 일치 필요) ②발행 실행 승인 → 실행 절차: launch_chrome_debug.py → 티스토리 로그인 → PYTHONUTF8=1 python -u scripts/tistory_publish_ai.py
 - 예산 사용 ₩0/30,000. 이탈 없음
 
 ---
