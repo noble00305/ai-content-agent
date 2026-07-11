@@ -79,29 +79,41 @@ def _normalize_cat(s):
 
 def resolve_category(publisher, driver):
     """에디터의 카테고리 드롭다운에서 실제 옵션을 읽어 CONFIG 카테고리와 매칭.
+    v22와 동일하게 에디터가 완전히 준비된 뒤에 카테고리 버튼을 연다 (그 전엔 레이어가 안 뜸).
     가운뎃점/공백 차이는 허용하고, 화면에 있는 정확한 문자열로 publisher.category를 교체.
     매칭 실패 시 False (발행 중단용)."""
     target = _normalize_cat(CONFIG["category"])
-    driver.get(CONFIG["blog_url"] + "/manage/newpost")
-    time.sleep(3)
-    try:
-        driver.switch_to.alert.dismiss()
-        time.sleep(2)
-    except Exception:
-        pass
-    time.sleep(4)
-    driver.execute_script("var btn = document.querySelector('.btn-category'); if (btn) btn.click();")
+    if not publisher._ensure_editor():  # 이동 + 알럿 처리 + 제목 입력창 대기
+        print("  에디터 로딩 실패")
+        return False
+    # tinymce 본문 에디터까지 준비될 때까지 대기 (v22 본문 입력 전 대기와 동일)
+    for _ in range(15):
+        ready = driver.execute_script(
+            "var ed = tinymce.get('editor-tistory');"
+            "if (!ed) return 0; if (!ed.getBody()) return 1; return 3;"
+        )
+        if ready == 3:
+            break
+        time.sleep(1)
     time.sleep(2)
-    options = driver.execute_script(
-        "return Array.from(document.querySelectorAll('span.mce-text')).map(function(s){return s.textContent.trim();});"
-    ) or []
-    for opt in options:
-        if _normalize_cat(opt) == target:
-            exact = re.sub(r"^-\s*", "", opt.strip())
-            if exact != CONFIG["category"]:
-                print("  카테고리 자동 매칭: '" + CONFIG["category"] + "' → 화면 표기 '" + exact + "'")
-            publisher.category = exact
-            return True
+    for attempt in range(3):
+        # 실제 버튼은 .btn-category(껍데기 div) 안의 #category-btn — div 클릭으로는 안 열림 (2026-07 마크업)
+        driver.execute_script("var b = document.querySelector('#category-btn') || document.querySelector('.btn-category'); if (b) b.click();")
+        time.sleep(2)
+        options = driver.execute_script(
+            "var lst = document.querySelector('#category-list') || document;"
+            "return Array.from(lst.querySelectorAll('span.mce-text'))"
+            ".map(function(s){return s.textContent.trim();});"
+        ) or []
+        for opt in options:
+            if _normalize_cat(opt) == target:
+                exact = re.sub(r"^-\s*", "", opt.strip())
+                if exact != CONFIG["category"]:
+                    print("  카테고리 자동 매칭: '" + CONFIG["category"] + "' → 화면 표기 '" + exact + "'")
+                publisher.category = exact
+                print("  카테고리 확인 완료: " + exact)
+                return True
+        time.sleep(2)
     print("  ❌ 카테고리 '" + CONFIG["category"] + "' 를 드롭다운에서 못 찾음.")
     print("     드롭다운 옵션: " + " | ".join(o for o in options if o))
     print("     관리자 > 카테고리에서 이름 확인 후 재실행하세요.")
@@ -162,9 +174,24 @@ def main():
         print("연결 실패 — launch_chrome_debug.py 실행 + 티스토리 로그인 확인")
         return
 
+    # 자동화 전용 탭 분리 — 사용자가 같은 브라우저를 쓰는 중이어도 서로 간섭하지 않도록
+    publisher.driver.switch_to.new_window("tab")
+    publisher.driver.get(CONFIG["blog_url"] + "/manage")
+    time.sleep(3)
+    print("  전용 탭에서 진행 (⚠️ 발행 완료까지 이 크롬 탭을 조작하지 마세요)")
+
     print("\n카테고리 확인 중...")
     if not resolve_category(publisher, publisher.driver):
         return
+
+    # v22의 발행 단계도 '.btn-category'(껍데기 div)를 클릭해 카테고리 선택이 조용히 실패함
+    # → 실행되는 JS에서 셀렉터를 실제 버튼(#category-btn)으로 치환 (v22 원본은 수정하지 않음)
+    _orig_js = publisher._js
+    def _patched_js(script, *args):
+        if ".btn-category" in script:
+            script = script.replace("'.btn-category'", "'#category-btn'")
+        return _orig_js(script, *args)
+    publisher._js = _patched_js
 
     ok = 0
     for md_file, title, sched in plans:

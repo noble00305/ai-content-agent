@@ -153,7 +153,13 @@
   - `content/tistory-ready/` 5편 변환 완료 (H1+태그+메타). 예약: 7/13 ai-coding-tools, 7/15 free-ai-tools, 7/17 ai-search(W1 3편) / 7/20 nocode, 7/22 local-llm(W2 2편), 모두 08:30
   - 검증: dry-run 통과, HTML 변환 실측(표 4개 렌더, HTML 주석·AFFILIATE 플레이스홀더 제거 확인, 태그/메타 추출 정상) — 제휴 링크는 W3에 발행글 수정으로 삽입(tistory_batch_update.py 참고)
   - **발행 전 남은 것**: ①eunho0927에 "AI·테크" 카테고리 신설(관리자>카테고리, 이름 정확히 일치 필요) ②발행 실행 승인 → 실행 절차: launch_chrome_debug.py → 티스토리 로그인 → PYTHONUTF8=1 python -u scripts/tistory_publish_ai.py
+- **발행 실행 완료 (사장님 승인 "승인해라이")** — eunho0927에 5편 전부 예약 발행, 관리 페이지 [예약] 5건 실측 확인
+  - "AI·테크" 카테고리: 사장님 생성분이 미저장으로 사라져 있어(티스토리는 하단 '변경사항 저장' 필수) 자동화로 생성·저장·재로드 검증 완료 (최상위 카테고리, 원하면 정보 하위로 드래그 이동 가능)
+  - 트러블슈팅: ①에디터 카테고리 버튼 마크업 변경 — `.btn-category`는 껍데기 div가 됐고 실제 버튼은 `#category-btn`, 옵션은 클릭 후 `#category-list`에 lazy load → 어댑터에 검증 단계 + 발행 단계 JS 셀렉터 치환 추가 ②디버그 크롬은 사장님이 쓰는 실브라우저라 탭 충돌 → 자동화 전용 탭 분리
+  - 1차 실행: W1 3편 성공, W2 2편 에디터 일시 오류(발행 전 단계라 부작용 없음) → 재시도 2/2 성공. 태그 자동 입력도 5편 전부 성공(로컬LLM 1차 실패분은 재시도에서 성공)
+  - 발행 완료 md는 content/tistory-ready/published/로 이동됨
 - 예산 사용 ₩0/30,000. 이탈 없음
+- 다음: W1 잔여 — 티스토리 검색 노출 설정 확인(헌법 W1 임무). W2(7/20~) — 색인 1차 측정(다음/구글 site:), 제휴 가입(쿠팡은 계정 기존재 확인됨 → Railway·ElevenLabs 등만)
 
 ---
 
