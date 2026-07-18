@@ -1,11 +1,9 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { TrendItem, ActionPlan, Action, CreatePostParams } from "../types";
 import { buildPlannerPrompt } from "./prompts";
 import { getRecentSlugs } from "../memory/index";
 import { getLearnedPatterns } from "../memory/index";
 import { v4 } from "../utils/id";
-
-const client = new Anthropic();
+import { generateText } from "../utils/llm";
 
 export async function runBrain(trends: TrendItem[]): Promise<ActionPlan> {
   console.log("[Brain] 의사결정 시작...");
@@ -14,13 +12,7 @@ export async function runBrain(trends: TrendItem[]): Promise<ActionPlan> {
   const patterns = getLearnedPatterns();
   const prompt = buildPlannerPrompt(trends, recentSlugs, patterns);
 
-  const response = await client.messages.create({
-    model: "claude-sonnet-4-20250514",
-    max_tokens: 2000,
-    messages: [{ role: "user", content: prompt }],
-  });
-
-  const text = response.content[0].type === "text" ? response.content[0].text : "";
+  const text = await generateText(prompt, 2000);
 
   // JSON 파싱 (코드블록 감싸져 있을 수 있음)
   const jsonStr = text.replace(/```json?\n?/g, "").replace(/```/g, "").trim();

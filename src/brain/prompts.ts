@@ -93,6 +93,7 @@ export function buildWriterPrompt(
 ## 응답 형식 (JSON)
 {
   "title": "최종 제목 (SEO 최적화)",
+  "slug": "english-url-slug (영문 소문자와 하이픈만, 4~8단어, 제목의 핵심 키워드 번역)",
   "description": "메타 디스크립션 (150자 이내)",
   "content": "마크다운 본문 전체",
   "tags": ["태그1", "태그2", "태그3"]

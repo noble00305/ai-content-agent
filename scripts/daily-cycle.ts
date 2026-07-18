@@ -45,6 +45,8 @@ async function dailyCycle() {
 
   if (actionsToExecute.length > 0) {
     await executeActions(actionsToExecute);
+    // posts-data.json 갱신 (Threads 파이프라인이 이 파일을 소스로 읽음)
+    await import("./build-posts");
   } else {
     console.log("[Hands] 실행할 액션 없음");
   }
